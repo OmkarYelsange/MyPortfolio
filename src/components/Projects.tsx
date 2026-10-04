@@ -1,32 +1,31 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, Search } from 'lucide-react'
-import { categories, projects, type Category } from '../data/projects'
+import { dataCategories, dataProjects, type Category, type Project } from '../data/projects'
 import { siteConfig } from '../data/siteConfig'
-import { lazy, Suspense } from 'react'
+import { HeadModel, type ModelKind } from './FillModel'
 import { TiltCard } from './Motion'
 
-const Globe3D = lazy(() => import('./Scenes').then(m => ({ default: m.Globe3D })))
-
 type Filter = 'All' | Category
+interface Props { id: string; eyebrow: string; title: string; intro: string; items: Project[]; cats: Category[]; model?: ModelKind; footer?: ReactNode }
 
-export default function Projects() {
+export function ProjectsSection({ id, eyebrow, title, intro, items, cats, model, footer }: Props) {
   const [cat, setCat] = useState<Filter>('All')
   const [q, setQ] = useState('')
-  const list = useMemo(() => projects.filter(p =>
+  const list = useMemo(() => items.filter(p =>
     (cat === 'All' || p.category === cat) &&
-    [p.title, p.category, p.shortDescription, ...p.technologies].join(' ').toLowerCase().includes(q.toLowerCase())), [cat, q])
-  const count = (c: Filter) => (c === 'All' ? projects.length : projects.filter(p => p.category === c).length)
+    [p.title, p.category, p.shortDescription, ...p.technologies].join(' ').toLowerCase().includes(q.toLowerCase())), [items, cat, q])
+  const count = (c: Filter) => (c === 'All' ? items.length : items.filter(p => p.category === c).length)
   return (
-    <section id="work" className="relative mx-auto max-w-[1400px] scroll-mt-20 px-4 py-16 sm:px-6 sm:py-20" aria-labelledby="work-h">
-      <div className="pointer-events-none absolute right-6 top-2 hidden h-48 w-48 lg:block xl:right-16"><Suspense fallback={null}><Globe3D /></Suspense></div>
-      <p className="font-mono text-xs text-cyan">SELECTED WORK</p>
-      <h2 id="work-h" className="mt-2 text-2xl font-bold sm:text-3xl">Projects from my GitHub</h2>
-      <p className="mt-2 max-w-[65ch] text-fg2">Data analytics, data engineering, software / web development and hardware projects, in that order. Each one has a case study with the problem, approach, solution, result, benefits and how it differs from usual methods.</p>
+    <section id={id} className="relative mx-auto max-w-[1400px] scroll-mt-20 px-4 py-16 sm:px-6 sm:py-20" aria-labelledby={`${id}-h`}>
+      {model && <HeadModel kind={model} />}
+      <p className="font-mono text-xs text-cyan">{eyebrow}</p>
+      <h2 id={`${id}-h`} className="mt-2 text-2xl font-bold sm:text-3xl">{title}</h2>
+      <p className="mt-2 max-w-[65ch] text-fg2">{intro}</p>
       <div className="mt-8 flex flex-col gap-3 lg:flex-row lg:items-center">
         <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects by category">
-          {(['All', ...categories] as Filter[]).map(c => (
+          {(['All', ...cats] as Filter[]).map(c => (
             <button key={c} aria-pressed={cat === c} onClick={() => setCat(c)}
               className={`rounded-full border px-3 py-1.5 text-xs transition sm:px-4 sm:py-2 sm:text-sm ${cat === c ? 'border-accent bg-accent/15 text-accent' : 'border-white/10 text-fg2 hover:-translate-y-0.5 hover:border-accent/50 hover:text-fg'}`}>
               {c} <span className="ml-1 font-mono text-xs opacity-60">{count(c)}</span>
@@ -62,7 +61,16 @@ export default function Projects() {
         </AnimatePresence>
       </motion.div>
       {list.length === 0 && <p className="mt-8 text-fg2">No projects match. Clear the search or pick another category.</p>}
-      <p className="mt-8 text-sm text-fg2">There are more repositories (web apps, clones and practice work) on <a className="u-link text-accent" href={siteConfig.social.github} target="_blank" rel="noreferrer">my GitHub profile</a>.</p>
+      {footer}
     </section>
   )
+}
+
+export default function Projects() {
+  return (
+    <ProjectsSection id="work" eyebrow="SELECTED WORK" title="Data projects" model="globe" items={dataProjects} cats={dataCategories}
+      intro="Data analytics and data engineering projects built with SQL, Python, Power BI, Databricks and AWS. Each has a case study covering the problem, approach, solution, result, benefits and how it differs from usual methods."
+      footer={<div className="mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl border border-dashed border-accent/40 bg-accent/5 p-5 sm:flex-row sm:items-center">
+        <div><p className="font-semibold">Looking for full stack, robotics, IoT or hardware work?</p><p className="text-sm text-fg2">It lives on a separate page, so this portfolio stays focused on data. More repositories are on <a className="u-link text-accent" href={siteConfig.social.github} target="_blank" rel="noreferrer">GitHub</a>.</p></div>
+        <Link to="/other-work" className="btn-shine shrink-0 rounded-lg border border-accent/50 px-4 py-2 text-sm font-semibold text-accent">Explore Other Work →</Link></div>} />)
 }

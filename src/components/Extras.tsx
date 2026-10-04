@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
+import { HeadModel } from './FillModel'
 import { DonutChart, KPIStat, MiniBarChart, MiniLineChart } from './Charts'
-import { projects } from '../data/projects'
+import { dataProjects as projects } from '../data/projects'
 
 export function TechMatrix() {
   const map = new Map<string, string[]>()
   projects.forEach(p => p.technologies.forEach(t => map.set(t, [...(map.get(t) ?? []), p.title])))
-  const rows = [...map.entries()].sort((a, b) => b[1].length - a[1].length)
+  const rows = [...map.entries()].sort((a, b) => b[1].length - a[1].length).slice(0, 12)
   return (
-    <section className="mx-auto max-w-[1400px] px-4 py-14 sm:px-6 sm:py-20" aria-labelledby="tm">
+    <section className="relative mx-auto max-w-[1400px] px-4 py-14 sm:px-6 sm:py-20" aria-labelledby="tm"><HeadModel kind="db" />
       <h2 id="tm" className="text-2xl font-bold sm:text-3xl">Technologies by project</h2>
-      <p className="mt-2 text-fg2">Where each tool has been used.</p>
+      <p className="mt-2 text-fg2">The twelve data tools I use most, and where each was used.</p>
       <dl data-stagger className="stagger mt-8 grid gap-3 sm:grid-cols-2">
         {rows.map(([t, ps]) => <div key={t} className="rounded-xl border border-white/10 bg-card p-4"><dt className="font-mono text-sm text-accent">{t}</dt><dd className="mt-1 text-sm text-fg2">{ps.join(' · ')}</dd></div>)}
       </dl>

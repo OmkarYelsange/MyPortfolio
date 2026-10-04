@@ -1,8 +1,11 @@
 import { skills } from '../data/skills'
-import { experience } from '../data/experience'
+import { SkillGroups } from './Skills'
+import { Link } from 'react-router-dom'
+import { dataExperience, type Role } from '../data/experience'
 import { siteConfig } from '../data/siteConfig'
 import { lazy, Suspense } from 'react'
 import Timeline from './Timeline'
+import { HeadModel } from './FillModel'
 import ContactForm from './ContactForm'
 
 const Shape3D = lazy(() => import('./Scenes').then(m => ({ default: m.Shape3D })))
@@ -12,24 +15,24 @@ const S = ({ id, title, children }: { id: string; title: string; children: React
 
 export const Skills = () => (
   <S id="skills" title="Skills & tech stack">
-    <div className="pointer-events-none absolute right-6 top-6 hidden h-52 w-52 lg:block xl:right-16 xl:h-60 xl:w-60"><Suspense fallback={null}><Globe3D /></Suspense></div>
-    <div data-stagger className="stagger grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {Object.entries(skills).map(([g, items]) => (
-        <div key={g} className="lift rounded-2xl border border-white/10 bg-card p-5"><h3 className="font-semibold text-accent">{g}</h3>
-          <ul className="mt-3 flex flex-wrap gap-2">{items.map(i => <li key={i} className="chip rounded-md bg-white/5 px-2 py-1 font-mono text-xs text-fg2">{i}</li>)}</ul></div>))}
-    </div>
+    <HeadModel kind="globe" />
+    <p className="-mt-4 mb-8 max-w-[65ch] text-fg2">Data-first toolkit: analytics and BI, data engineering and cloud, programming and databases, and data science.</p>
+    <SkillGroups data={skills} filler="orbit" />
   </S>)
+
+export const RoleCard = ({ e }: { e: Role }) => (
+  <div className="lift rounded-2xl border border-white/10 bg-card p-5">
+    <div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold">{e.role}</h3><span className="rounded-full bg-white/5 px-2 py-0.5 font-mono text-xs text-fg2">{e.type}</span>{e.current && <span className="rounded-full bg-accent/15 px-2 py-0.5 font-mono text-xs text-accent">Current</span>}</div>
+    <p className="text-fg2">{e.company}</p>
+    <p className="font-mono text-sm text-cyan">{e.dates || 'Dates to be added'}</p>
+    {e.points.length > 0 ? <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-fg2">{e.points.map(p => <li key={p}>{p}</li>)}</ul> : <p className="mt-3 text-sm text-muted">Details to be added.</p>}
+    {e.tech.length > 0 && <ul className="mt-3 flex flex-wrap gap-2">{e.tech.map(t => <li key={t} className="chip rounded-md bg-white/5 px-2 py-1 font-mono text-xs text-fg2">{t}</li>)}</ul>}
+  </div>)
 
 export const Experience = () => (
   <S id="experience" title="Experience">
-    <Timeline items={experience.map(e => (
-      <div key={e.company + e.role} className="lift rounded-2xl border border-white/10 bg-card p-5">
-        <div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold">{e.role}</h3><span className="rounded-full bg-white/5 px-2 py-0.5 font-mono text-xs text-fg2">{e.type}</span>{e.current && <span className="rounded-full bg-accent/15 px-2 py-0.5 font-mono text-xs text-accent">Current</span>}</div>
-        <p className="text-fg2">{e.company}</p>
-        <p className="font-mono text-sm text-cyan">{e.dates || 'Dates to be added'}</p>
-        {e.points.length > 0 ? <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-fg2">{e.points.map(p => <li key={p}>{p}</li>)}</ul> : <p className="mt-3 text-sm text-muted">Details to be added.</p>}
-        {e.tech.length > 0 && <ul className="mt-3 flex flex-wrap gap-2">{e.tech.map(t => <li key={t} className="chip rounded-md bg-white/5 px-2 py-1 font-mono text-xs text-fg2">{t}</li>)}</ul>}
-      </div>))} />
+    <Timeline models={['sensor', 'gantt']} items={dataExperience.map(e => <RoleCard key={e.company + e.role} e={e} />)} />
+    <p className="mt-8 text-sm text-fg2">I also completed a Full Stack Development internship: see <Link to="/other-work" className="u-link text-accent">Other Work</Link>.</p>
   </S>)
 
 export const Contact = () => (
@@ -45,4 +48,7 @@ export const Contact = () => (
 
 export const Footer = () => (
   <footer className="border-t border-white/10 px-6 py-10 text-center text-sm text-muted">
-    <p className="text-fg">{siteConfig.name}</p><p>{siteConfig.location} · © 2026 · Built with React + Vite + Tailwind</p></footer>)
+    <p className="text-fg">{siteConfig.name}</p>
+    <p className="mt-1">Data Analytics · Data Engineering · Data Science</p>
+    <nav aria-label="Footer" className="mt-4 flex flex-wrap justify-center gap-x-5 gap-y-2"><a className="u-link hover:text-fg" href="/#about">About</a><a className="u-link hover:text-fg" href="/#work">Projects</a><a className="u-link hover:text-fg" href="/#contact">Contact</a><Link className="u-link hover:text-fg" to="/other-work">Other Work</Link><a className="u-link hover:text-fg" href={siteConfig.resume}>Resume</a></nav>
+    <p className="mt-4">{siteConfig.location} · © 2026 · Built with React + Vite + Tailwind</p></footer>)

@@ -1,17 +1,17 @@
 import { experience } from '../data/experience'
-import { projects } from '../data/projects'
+import { dataProjects as projects } from '../data/projects'
 import { Counter } from './Motion'
 import { skills } from '../data/skills'
 
 const groups = [
   ['Data Analytics', ['Python', 'SQL', 'Power BI', 'Excel', 'EDA', 'Data Visualization']],
   ['Data Engineering', ['AWS', 'Databricks', 'PySpark', 'ETL / ELT', 'Data Warehousing', 'Data Pipelines']],
-  ['Data Science / ML', ['Python', 'Machine Learning', 'NLP', 'Generative AI', 'Gemini API']],
+  ['Data Science / ML', ['Python', 'Statistics', 'Machine Learning', 'NLP', 'Generative AI']],
 ] as const
 
 export default function RecruiterSnapshot() {
   // Counts are derived from the data files, never hard-coded.
-  const stats = [[projects.length, 'Projects'], [new Set(Object.values(skills).flat()).size, 'Tools & skills'], [experience.length, 'Roles & internships']]
+  const stats = [[projects.length, 'Data projects'], [new Set(Object.values(skills).flat()).size, 'Tools & skills'], [experience.filter(e => e.track === 'data').length, 'Data roles & internships']]
   return (
     <section className="mx-auto max-w-[1400px] px-4 py-14 sm:px-6 sm:py-20" aria-labelledby="snap">
       <h2 id="snap" className="text-2xl font-bold">Recruiter snapshot</h2>

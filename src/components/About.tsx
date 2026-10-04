@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { FillModel } from "./FillModel";
 import { MapPin, Briefcase, GraduationCap, Target } from "lucide-react";
 
 const facts = [
@@ -8,7 +10,7 @@ const facts = [
     "Education",
     "B.E. Robotics & Automation Engineering (2022–2026)",
   ],
-  [Target, "Focus", "Data Analytics · Data Engineering · Data & ML"],
+  [Target, "Focus", "Data Analytics · Data Engineering · Data Science"],
 ] as const;
 
 const journey = [
@@ -27,8 +29,7 @@ export default function About() {
       aria-labelledby="about-h"
     >
       <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_1.3fr] lg:items-start">
-        {/* ================= LEFT SIDE ================= */}
-        {/* Image + Pune + Facts */}
+        {/* LEFT — IMAGE + FACTS */}
         <div className="space-y-4 lg:order-1">
           <figure className="lift relative mx-auto aspect-[5/4] max-w-md overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-accent/30 via-cyan/15 to-pink/25 lg:max-w-none">
             <div
@@ -52,74 +53,91 @@ export default function About() {
               <b>Omkar Yelsange</b> · Pune, India
             </figcaption>
           </figure>
+
+          {/* 3D SENSOR MODEL — KEPT */}
+          <div className="relative mt-6 hidden h-56 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-accent/10 via-transparent to-cyan/10 lg:block">
+            <FillModel
+              kind="sensor"
+              label="3D live sensor data waveform"
+              className="absolute inset-0"
+            />
+
+            <p className="absolute bottom-3 left-4 rounded-full border border-white/15 bg-card px-3 py-1 font-mono text-xs text-fg2">
+              live sensor data → analysis → insight
+            </p>
+          </div>
         </div>
 
-        {/* ================= RIGHT SIDE ================= */}
-        {/* About Me Content */}
-        <div className="lg:order-2">
+        {/* RIGHT — ABOUT CONTENT */}
+        <div className="space-y-4 text-fg2 lg:order-2">
           <p className="font-mono text-xs text-cyan">ABOUT ME</p>
 
-          <h2 id="about-h" className="mt-2 text-2xl font-bold sm:text-3xl">
+          <h2 id="about-h" className="text-2xl font-bold sm:text-3xl">
             From Raw Data to Actionable Insights
           </h2>
 
-          <div className="mt-6 space-y-4 text-fg2">
-            <p>
-              I'm Omkar Yelsange, a Data Analyst at Autoline Industries Ltd.
-              based in Pune, with a B.E. Engineering Graduate. I started in
-              engineering and gradually moved toward software and data, where
-              I'm most interested in how raw data becomes reliable pipelines,
-              dashboards and decisions.
-            </p>
+          <p>
+            I'm Omkar Yelsange, a Data Analyst at Autoline Industries Ltd. based
+            in Pune, with a B.E. in Robotics &amp; Automation Engineering. My
+            multidisciplinary engineering background helped me develop strong
+            problem-solving and technical foundations, while my current focus is
+            on transforming data into insights, building reliable data
+            pipelines, and developing data-driven solutions.
+          </p>
 
-            <p>
-              At Autoline I work with live sensor data collected from physical
-              industrial grinding machines. Alongside the job I build data
-              engineering skills with Databricks, PySpark, AWS and the Medallion
-              architecture, and I create dashboards and analyses with SQL,
-              Python and Power BI.
-            </p>
+          <p>
+            At Autoline I work with live sensor data collected from physical
+            industrial grinding machines. Alongside the job I build data
+            engineering skills with Databricks, PySpark, AWS and the Medallion
+            architecture, and I create analyses and dashboards with SQL, Python
+            and Power BI.
+          </p>
 
-            <p>
-              I'm looking for roles across data analytics, data engineering,
-              business intelligence and data / ML.
-            </p>
+          <p>
+            I'm looking for roles in data analytics, data engineering, business
+            intelligence and data science. My full stack, robotics and IoT work
+            is on a separate{" "}
+            <Link to="/other-work" className="u-link text-accent">
+              Other Work
+            </Link>{" "}
+            page.
+          </p>
 
-            <ol
-              data-stagger
-              className="stagger flex flex-wrap gap-2 pt-2 font-mono text-xs"
-              aria-label="Career journey"
-            >
-              {journey.map((j, k) => (
-                <li
-                  key={j}
-                  className="rounded-full border border-white/15 bg-card px-3 py-1 text-fg"
-                >
-                  {j}
+          {/* CAREER JOURNEY */}
+          <ol
+            data-stagger
+            className="stagger flex flex-wrap gap-2 pt-2 font-mono text-xs"
+            aria-label="Career journey"
+          >
+            {journey.map((j, k) => (
+              <li
+                key={j}
+                className="rounded-full border border-white/15 bg-card px-3 py-1 text-fg"
+              >
+                {j}
 
-                  {k < journey.length - 1 && (
-                    <span className="ml-2 text-accent">→</span>
-                  )}
-                </li>
-              ))}
-            </ol>
-            <div className="mt-10"></div>
-            <ul data-stagger className="stagger grid gap-3">
-              {facts.map(([Icon, l, v]) => (
-                <li
-                  key={l}
-                  className="flex items-start gap-3 lift rounded-2xl border border-white/10 bg-card p-4"
-                >
-                  <Icon size={18} className="mt-0.5 text-accent" />
+                {k < journey.length - 1 && (
+                  <span className="ml-2 text-accent">→</span>
+                )}
+              </li>
+            ))}
+          </ol>
 
-                  <div>
-                    <p className="text-xs text-muted">{l}</p>
-                    <p className="text-sm">{v}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul data-stagger className="stagger grid gap-3">
+            {facts.map(([Icon, l, v]) => (
+              <li
+                key={l}
+                className="flex items-start gap-3 lift rounded-2xl border border-white/10 bg-card p-4"
+              >
+                <Icon size={18} className="mt-0.5 text-accent" />
+
+                <div>
+                  <p className="text-xs text-muted">{l}</p>
+                  <p className="text-sm">{v}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
