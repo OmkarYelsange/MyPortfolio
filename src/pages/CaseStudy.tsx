@@ -1,7 +1,8 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, X } from 'lucide-react'
-import { projects } from '../data/projects'
+import { dataProjects, isData, otherProjects, projects } from '../data/projects'
+import { FillModel, type ModelKind } from '../components/FillModel'
 import DataPipeline, { type PipelineNodeData } from '../components/DataPipeline'
 
 const Hero3D = lazy(() => import('../components/Hero3D'))
@@ -10,6 +11,7 @@ const arch: PipelineNodeData[] = [
   { id: 'g', label: 'Gold', sub: 'analytics-ready datasets' }, { id: 'pbi', label: 'SQL / Power BI', sub: 'analysis and dashboards' },
 ]
 const Empty = () => <p className="text-muted">Details will be added soon.</p>
+const sideModel: Record<string, ModelKind> = { 'Data Engineering': 'db', 'Data Analytics': 'cube', 'Software / Web Development': 'code', Hardware: 'chip' }
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-')
 
 function SectionNav({ items }: { items: [string, string][] }) {
@@ -31,11 +33,13 @@ export default function CaseStudy() {
   useEffect(() => { window.scrollTo(0, 0) }, [id])
   useEffect(() => { const k = (e: KeyboardEvent) => e.key === 'Escape' && setZoom(null); addEventListener('keydown', k); return () => removeEventListener('keydown', k) }, [])
   if (!p) return <main className="mx-auto max-w-[800px] px-6 pt-32"><p>Project not found.</p><Link to="/" className="text-accent">Back to projects</Link></main>
-  const prev = projects[(idx - 1 + projects.length) % projects.length], next = projects[(idx + 1) % projects.length]
+  const pool = isData(p) ? dataProjects : otherProjects; const pi = pool.indexOf(p); const prev = pool[(pi - 1 + pool.length) % pool.length], next = pool[(pi + 1) % pool.length]
   const nav: [string, string][] = [['problem', 'Problem'], ['approach', 'Approach'], ['solution', 'Solution'], ['result', 'Result'], ['benefits', 'Benefits'], ['different', 'Different from other methods'], ...(p.gallery.length ? [['gallery', 'Screenshots'] as [string, string]] : [])]
   return (
     <main className="mx-auto max-w-[1000px] px-4 pb-24 pt-24 sm:px-6 sm:pt-28">
-      <Link to="/#work" className="u-link inline-flex items-center gap-1 text-sm text-fg2 hover:text-fg"><ArrowLeft size={14} /> Back to projects</Link>
+      <FillModel kind="orbit" label="3D tech orbit" className="fixed left-8 top-1/2 z-0 hidden h-52 w-52 -translate-y-1/2 2xl:block" />
+      <FillModel kind={sideModel[p.category]} label="3D model for this project category" className="fixed right-8 top-1/2 z-0 hidden h-52 w-52 -translate-y-1/2 2xl:block" />
+      {isData(p) ? <Link to="/#work" className="u-link inline-flex items-center gap-1 text-sm text-fg2 hover:text-fg"><ArrowLeft size={14} /> Back to data projects</Link> : <Link to="/other-work" className="u-link inline-flex items-center gap-1 text-sm text-fg2 hover:text-fg"><ArrowLeft size={14} /> Back to Other Work</Link>}
       <p className="mt-6 font-mono text-xs text-cyan">{p.category}</p>
       <h1 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{p.title}</h1>
       <p className="mt-4 max-w-[70ch] text-fg2">{p.shortDescription}</p>

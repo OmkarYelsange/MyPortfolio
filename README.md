@@ -63,3 +63,10 @@ Import the repo in Vercel (framework preset: Vite). Add a rewrite of all paths t
 - Reveal effect: sections, cards and grid children emerge from the background (fade + scale + blur + rise) as they scroll into view (`Reveal` in `Motion.tsx`, `.stagger` in `index.css`). `prefers-reduced-motion` turns the movement off.
 - `BackToTop.tsx`: floating button (bottom-left) with a scroll-progress ring that returns to the hero.
 - 3D: `HeroWorld` (hero pipeline), `Background3D` (site-wide data-themed field that follows scroll and pointer), `Globe3D` (Skills and Projects headers) and `Shape3D` (Resume, Contact), all in `Scenes.tsx`.
+
+## Data-first structure and Other Work
+- The main portfolio (`/`) is data-only: Data Analytics, Data Engineering and Data Science. Full stack, robotics, IoT and hardware live on `/other-work`. Projects are split by category in `src/data/projects.ts` (`dataProjects` / `otherProjects`); experience has a `track` field; skills are `skills` (data) and `otherSkills`.
+- The AI assistant is context-aware. `src/data/knowledge.json` tags every fact and Q&A with `ctx: data | other | both`; `src/lib/pageContext.ts` detects the page; `src/lib/assistant.ts` answers only from that context and redirects off-topic questions with a button to the other page; `api/chat.ts` builds the Gemini prompt from the same context.
+- `Model3D` kinds (`Scenes.tsx`) fill empty layout space: sensor, gantt, code, cap, book, medal, trophy, workflow, git, chip, orbit, db, cube, neural, globe. `FillModel` / `HeadModel` place them. Renderers exist only while on screen, so many models never exceed the browser's WebGL limit.
+- Skill logos come from simple-icons (`src/data/skillIcons.ts`); skills without a brand glyph use a themed icon.
+- Production URL used in SEO files: https://omkary.vercel.app

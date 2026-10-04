@@ -7,7 +7,7 @@ export default function CommandPalette() {
   const [open, setOpen] = useState(false); const [q, setQ] = useState(''); const [i, setI] = useState(0)
   const nav = useNavigate(); const ref = useRef<HTMLInputElement>(null)
   const go = (id: string) => () => { nav('/'); setTimeout(() => document.getElementById(id)?.scrollIntoView(), 50) }
-  const items: [string, () => void][] = [['Go to Work', go('work')], ['Go to About', go('about')], ['Go to Certifications', go('certifications')], ['Go to Co-curricular', go('activities')], ['Go to Skills', go('skills')], ['Open terminal', () => window.dispatchEvent(new Event('toggle-terminal'))], ['Ask the AI assistant', () => window.dispatchEvent(new Event('toggle-assistant'))], ['Go to Experience', go('experience')], ['Contact Omkar', go('contact')],
+  const items: [string, () => void][] = [['Go to Work', go('work')], ['Go to About', go('about')], ['Other Work (full stack, IoT, hardware)', () => nav('/other-work')], ['Back to Data Portfolio', () => nav('/')], ['Go to Certifications', go('certifications')], ['Go to Co-curricular', go('activities')], ['Go to Skills', go('skills')], ['Open terminal', () => window.dispatchEvent(new Event('toggle-terminal'))], ['Ask the AI assistant', () => window.dispatchEvent(new Event('toggle-assistant'))], ['Go to Experience', go('experience')], ['Contact Omkar', go('contact')],
     ['Open GitHub', () => window.open(siteConfig.social.github)], ['Download resume', () => window.open(siteConfig.resume)],
     ...projects.map(p => [`Project: ${p.title}`, () => nav(`/projects/${p.id}`)] as [string, () => void])]
   const shown = items.filter(([l]) => l.toLowerCase().includes(q.toLowerCase()))

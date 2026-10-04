@@ -1,41 +1,97 @@
 {
  "profile": [
-  "Name: Omkar Yelsange. Positioning: Data Analyst | Data Engineer | Data & ML Enthusiast. Based in Pune / Lonavala, Maharashtra, India; open to relocation across India.",
-  "Education: B.E. Robotics & Automation Engineering, D Y Patil College of Engineering, Akurdi, Pune, 2022-2026, CGPA 8.90/10. HSC (12th): D P Mehta Jr College, Lonavala, 2021-2022, 64.33%. SSC (10th): Adv Bapusaheb Bhonde High School, Lonavala, 2019-2020, 80%.",
-  "Target roles: Data Analyst, Data Engineer / Junior Data Engineer, Data Scientist / Junior Data Scientist, Business Intelligence, Data / ML roles. Interests: Data Analytics, Data Engineering, Business Intelligence, Data Science, Machine Learning, Generative AI.",
-  "Journey: started in Robotics & Automation engineering, moved toward software development, then data analytics, data engineering and data + ML. He enjoys the layer between raw data and usable intelligence: pipelines, transformations and analytics-ready data.",
-  "This portfolio website is built with React, TypeScript, Vite, Tailwind CSS, Framer Motion and three.js, with an in-site terminal and this AI assistant (Gemini API behind a serverless function).",
-  "Contact: email omkaryelsange1010@gmail.com; GitHub https://github.com/OmkarYelsange; LinkedIn https://www.linkedin.com/in/omkar-yelsange; portfolio https://omkaryelsange.vercel.app. Phone, salary expectation, notice period and joining date are not published: ask Omkar by email.",
-  "Experience (only three roles): 1) Data Analyst at Autoline Industries Ltd, June 2026 to present (collected live sensor data from physical industrial grinding machines; received the offer after a GET interview in June 2025). 2) Project Management Internship at Lumax Cornaglia Auto Technologies Pvt Ltd, Jan 2026 to Feb 2026. 3) Full Stack Development Internship at Drushya Digital India Pvt Ltd, Sept 2025 to Nov 2025. Detailed responsibilities of the internships are not published.",
-  "Skills - Programming: Python, SQL, C++, JavaScript, HTML, CSS. Analytics: Power BI, Excel, DAX, Tableau (practice), EDA, data cleaning, visualization, KPI analysis. Data engineering: Databricks, PySpark, Delta Lake, AWS S3, Glue, DataBrew, Athena, QuickSight, ETL/ELT, Medallion architecture. Databases: MySQL, PostgreSQL, MongoDB, Cloud SQL, SQLite. Web: React, Next.js, Node.js, Express, Flask, Django, Firebase. AI/ML: machine learning, NLP, generative AI, Gemini API. Tools: Git, GitHub, VS Code, Postman, Vercel, Netlify, Render.",
-  "Projects are grouped as Data Analytics, Data Engineering, Software / Web Development and Hardware (in that order of preference).",
-  "DATA ENGINEERING - GoodCabs Analytics Platform (repo Databricks-Projects): Databricks pipeline Raw -> Bronze -> Silver -> Gold with PySpark and SQL on city and trip data from AWS S3. Databricks Lakehouse Projects (repo Databricks): hands-on projects with Apache Spark, PySpark, Spark SQL, Delta Lake and the Medallion architecture.",
-  "DATA ANALYTICS - AWS Healthcare Data Pipeline (repo AWS-DA): patient CSVs -> S3 -> Glue DataBrew -> Glue Crawler/Catalog -> Glue ETL -> Athena -> QuickSight (10 steps, serverless). Machine Monitoring Analytics M2 & M35: SQL analysis and KPI dashboards in Power BI and Excel. Airbnb NYC EDA: 20,770 listings, 22 attributes, Python (Manhattan priciest; beds vs price about 0.42; reviews vs reviews per month about 0.63). OLA Ride Analytics: 100,000 bookings, SQL scripts, Power BI dashboard, report and presentation. Zepto Inventory Analysis: SQL + Power BI. Blinkit Grocery Analytics: SQL, Excel, Power BI KPIs (these five are in repo Data-Analytics-Projects). Data Analyst Practice Lab (repo Data-Analyst): Excel Bike Sales dashboard, MySQL, Power BI, Python, Tableau Airbnb dashboard.",
-  "SOFTWARE / WEB DEVELOPMENT - SAMS Dashboard (React + Vite, Node.js/Express, MongoDB; real-time monitoring of grinding-machine sensor data). AI ChatBot (React + Vite + Tailwind, Flask, Gemini Flash 2.0). DeepSeek Clone (Next.js, Clerk auth, MongoDB, Markdown rendering). YouTube Video & Audio Downloader (Flask, Flask-Login, SQLite, yt-dlp, ffmpeg, MP4 up to 720p and MP3 192 kbps). Real-Time Chat App (React, Firebase, Zustand). React E-Commerce Store (React, Vite, Redux Toolkit, Clerk). AirBnB Clone (Node.js, Express, EJS). Voting System (Django, SQLite). IoT Device Platform (React, Express, MongoDB, Socket.io, Recharts). Tools & Jobs is a private repository (details not published).",
-  "HARDWARE - SAMS: Smart Abrasive Monitoring System, the final-year project: sensor-based monitoring of grinding wheel efficiency in surface grinding using live data from physical grinding machines; Omkar was team lead and member. IoT Smart Chair Kit: attachable kit tracking posture, sitting time and weight distribution with sensors on ESP32 + Arduino Uno and a Blynk dashboard; team of four, Omkar handled IoT integration and documentation. The SAMS dashboard (web) is counted as a software project.",
-  "Certifications (latest first): Deloitte Data Analytics Job Simulation (March 2026); Paper presentation certificate for 'Sensor-based Monitoring of Grinding Wheel Efficiency in Surface Grinding Operation' from D Y Patil College of Engineering (May 2025); DIPEX State Level Competition Finalist (April 2025); First Consolation Prize at Utkarsh 2K25 national project-level competition (March 2025); Python 101 for Data Science, IBM Cognitive Class (Jan 2025); Prompt Engineering for Everyone, IBM Cognitive Class (Nov 2024).",
-  "Co-curricular: active team member of the SARA club in college (2024-2025); active participant in Tech Fest; runner-up at Utkarsh 2K25 national project-level competition (March 2025); finalist at DIPEX state-level competition (April 2025); active team lead and member of the final-year project; research paper published."
+  {
+   "t": "Name: Omkar Yelsange. Primary focus: Data Analytics, Data Engineering and Data Science. Based in Pune / Lonavala, Maharashtra, India; open to relocation across India. Multidisciplinary engineering background (Robotics & Automation, full stack, IoT) is described on the Other Work page.",
+   "ctx": "both"
+  },
+  {
+   "t": "Current role: Data Analyst at Autoline Industries Ltd, June 2026 to present, working with live sensor data collected from physical industrial grinding machines. He received the offer after a GET interview in June 2025.",
+   "ctx": "both"
+  },
+  {
+   "t": "Education: B.E. Robotics & Automation Engineering, D Y Patil College of Engineering, Akurdi, Pune, 2022-2026, CGPA 8.90/10. HSC (12th): D P Mehta Jr College, Lonavala, 2021-2022, 64.33%. SSC (10th): Adv Bapusaheb Bhonde High School, Lonavala, 2019-2020, 80%.",
+   "ctx": "both"
+  },
+  {
+   "t": "Certifications (latest first): Deloitte Data Analytics Job Simulation (March 2026); paper presentation certificate for 'Sensor-based Monitoring of Grinding Wheel Efficiency in Surface Grinding Operation' (May 2025); DIPEX State Level Competition Finalist (April 2025); First Consolation Prize at Utkarsh 2K25 (March 2025); Python 101 for Data Science, IBM Cognitive Class (Jan 2025); Prompt Engineering for Everyone, IBM Cognitive Class (Nov 2024).",
+   "ctx": "both"
+  },
+  {
+   "t": "Co-curricular: active team member of the SARA club (2024-2025); Tech Fest participant; runner-up at Utkarsh 2K25; DIPEX state-level finalist; active team lead and member of the final-year project; research paper published.",
+   "ctx": "both"
+  },
+  {
+   "t": "Contact: email omkaryelsange1010@gmail.com; GitHub https://github.com/OmkarYelsange; LinkedIn https://www.linkedin.com/in/omkar-yelsange; portfolio https://omkary.vercel.app. Phone, salary expectation, notice period and joining date are not published: ask Omkar by email.",
+   "ctx": "both"
+  },
+  {
+   "t": "Target roles: Data Analyst, Data Engineer / Junior Data Engineer, Data Scientist / Junior Data Scientist, BI Analyst, Business / Data Analytics and junior ML / AI roles.",
+   "ctx": "data"
+  },
+  {
+   "t": "Data experience: Data Analyst at Autoline Industries Ltd (June 2026 to present); Project Management Internship at Lumax Cornaglia Auto Technologies Pvt Ltd (Jan 2026 to Feb 2026). Detailed responsibilities of the internship are not published.",
+   "ctx": "data"
+  },
+  {
+   "t": "Data skills - Analytics & BI: Power BI, Excel, Tableau, DAX, EDA, data cleaning, visualization, KPI analysis. Data engineering & cloud: Databricks, PySpark, Delta Lake, AWS S3, Glue, DataBrew, Athena, QuickSight, ETL/ELT, Medallion architecture, data warehousing. Programming & databases: Python, SQL, Pandas, NumPy, Jupyter, MySQL, PostgreSQL, SQLite, MongoDB. Data science: statistics, machine learning, NLP, generative AI, Gemini API. Tools: Git, GitHub, VS Code, Postman, Vercel.",
+   "ctx": "data"
+  },
+  {
+   "t": "DATA ENGINEERING projects: GoodCabs Analytics Platform (repo Databricks-Projects): Databricks pipeline Raw -> Bronze -> Silver -> Gold with PySpark and SQL on city and trip data from AWS S3. Databricks Lakehouse Projects (repo Databricks): Apache Spark, PySpark, Spark SQL, Delta Lake and the Medallion architecture.",
+   "ctx": "data"
+  },
+  {
+   "t": "DATA ANALYTICS projects: AWS Healthcare Data Pipeline (repo AWS-DA): patient CSVs -> S3 -> Glue DataBrew -> Glue Crawler/Catalog -> Glue ETL -> Athena -> QuickSight. Machine Monitoring Analytics M2 & M35: SQL analysis and KPI dashboards in Power BI and Excel. Airbnb NYC EDA: 20,770 listings, 22 attributes, Python (Manhattan priciest; beds vs price about 0.42; reviews vs reviews per month about 0.63). OLA Ride Analytics: 100,000 bookings, SQL scripts, Power BI dashboard, report and presentation. Zepto Inventory Analysis: SQL + Power BI. Blinkit Grocery Analytics: SQL, Excel, Power BI KPIs. Data Analyst Practice Lab: Excel Bike Sales dashboard, MySQL, Power BI, Python, Tableau Airbnb dashboard.",
+   "ctx": "data"
+  },
+  {
+   "t": "Other Work page: Full Stack, web, robotics, IoT and hardware projects are on the Other Work page of the portfolio (route /other-work).",
+   "ctx": "data"
+  },
+  {
+   "t": "Other work experience: Full Stack Development Internship at Drushya Digital India Pvt Ltd, Sept 2025 to Nov 2025 (detailed responsibilities not published). Earlier robotics/IoT work through the B.E. Robotics & Automation degree and the final-year project.",
+   "ctx": "other"
+  },
+  {
+   "t": "Other skills - Full stack & web: React, Next.js, Node.js, Express, Flask, Django, JavaScript, TypeScript, HTML, CSS, Tailwind CSS, Firebase, MongoDB, Postman, Netlify, Render, Clerk. Robotics, IoT & embedded: C++, Arduino, ESP32, Blynk, sensors, load cells.",
+   "ctx": "other"
+  },
+  {
+   "t": "SOFTWARE / WEB projects: SAMS Dashboard (React + Vite, Node.js/Express, MongoDB; real-time monitoring of grinding-machine sensor data). AI ChatBot (React + Vite + Tailwind, Flask, Gemini Flash 2.0). DeepSeek Clone (Next.js, Clerk, MongoDB). YouTube Video & Audio Downloader (Flask, Flask-Login, SQLite, yt-dlp, ffmpeg). Real-Time Chat App (React, Firebase, Zustand). React E-Commerce Store (React, Vite, Redux Toolkit, Clerk). AirBnB Clone (Node.js, Express, EJS). Voting System (Django). IoT Device Platform (React, Express, MongoDB, Socket.io, Recharts). Tools & Jobs is a private repository (details not published).",
+   "ctx": "other"
+  },
+  {
+   "t": "HARDWARE projects: SAMS Smart Abrasive Monitoring System (final-year project): sensor-based monitoring of grinding wheel efficiency in surface grinding using live data from physical grinding machines; Omkar was team lead and member. IoT Smart Chair Kit: attachable kit tracking posture, sitting time and weight distribution with flex/force sensors and load cells on ESP32 + Arduino Uno and a Blynk dashboard; team of four, Omkar handled IoT integration and documentation. Recognition: First Consolation Prize / runner-up at Utkarsh 2K25, DIPEX 2025 state-level finalist, showcased at Roborastra.",
+   "ctx": "other"
+  },
+  {
+   "t": "Data portfolio pointer: Omkar's primary focus is data analytics, data engineering and data science, covered on the main portfolio page (route /).",
+   "ctx": "other"
+  }
  ],
  "qa": [
   {
    "group": "About",
    "q": "Who are you?",
    "keywords": "who you introduce yourself omkar name",
-   "a": "I'm Omkar Yelsange, a Data Analyst and aspiring Data Engineer based in Pune. I work with Python, SQL, Power BI, Databricks, PySpark and AWS, and I'm interested in how raw data becomes reliable pipelines, dashboards and decisions.",
+   "a": "I'm Omkar Yelsange, a Data Analyst focused on Data Analytics, Data Engineering and Data Science, based in Pune. I work with Python, SQL, Power BI, Databricks, PySpark and AWS, and I enjoy turning raw data into reliable pipelines, insights and data-driven solutions.",
+   "ctx": "both",
    "pop": true
   },
   {
    "group": "About",
    "q": "Tell me about yourself",
    "keywords": "about yourself background summary describe",
-   "a": "I'm a Data Analyst at Autoline Industries Ltd. with a B.E. in Robotics & Automation Engineering. I started in engineering, moved toward software and then data, and now focus on analytics, data engineering and data/ML. My projects span Databricks pipelines, AWS data workflows, Power BI dashboards, Python EDA and IoT systems.",
+   "a": "I'm a Data Analyst at Autoline Industries Ltd. with a B.E. in Robotics & Automation Engineering. My multidisciplinary engineering background gave me strong problem-solving foundations, and my current focus is transforming data into insights, building reliable data pipelines and developing data-driven solutions.",
+   "ctx": "both",
    "pop": false
   },
   {
    "group": "About",
    "q": "What do you do?",
    "keywords": "what do you do job profession work",
-   "a": "I analyse and engineer data: building pipelines, SQL analysis, dashboards and data-driven systems. Right now I work as a Data Analyst at Autoline Industries Ltd.",
+   "a": "I analyse and engineer data: SQL and Python analysis, dashboards, and cloud data pipelines on Databricks and AWS. Right now I work as a Data Analyst at Autoline Industries Ltd.",
+   "ctx": "both",
    "pop": false
   },
   {
@@ -43,20 +99,23 @@
    "q": "Where are you based?",
    "keywords": "where location city live based pune lonavala",
    "a": "I'm based in Pune / Lonavala, Maharashtra, India.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "About",
    "q": "What is your career journey?",
    "keywords": "career journey path story transition timeline",
-   "a": "I began in Robotics & Automation Engineering, moved toward software development, then data analytics, data engineering and data + ML, finding that I'm most interested in how data becomes useful systems and decisions.",
+   "a": "I began in Robotics & Automation Engineering, moved toward software, then data analytics and data engineering, and I'm now building towards data science. That broader technical base is a strength, but my current focus is data.",
+   "ctx": "both",
    "pop": false
   },
   {
    "group": "About",
    "q": "Why did you move from robotics to data?",
    "keywords": "why robotics switch change move transition data",
-   "a": "Working with machines and sensors showed me how much value sits in data. Turning raw readings into pipelines, dashboards and decisions interested me more and more, so I moved toward data analytics and data engineering while keeping the engineering mindset.",
+   "a": "Working with machines and sensors showed me how much value sits in data. Turning raw readings into pipelines, dashboards and decisions interested me most, so I focused on data analytics and data engineering.",
+   "ctx": "both",
    "pop": false
   },
   {
@@ -64,48 +123,55 @@
    "q": "Why data engineering?",
    "keywords": "why data engineering interest passion",
    "a": "I enjoy the layer between raw information and usable intelligence: building the pipelines, transformations and systems that make reliable analytics possible.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "About",
    "q": "What are your strengths?",
    "keywords": "strengths strong good at best qualities",
    "a": "Turning raw data into clean, analytics-ready datasets (SQL, PySpark, Medallion architecture), building dashboards (Power BI), and bringing an engineering mindset from working with real machine sensor data.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "About",
    "q": "What makes you different from other candidates?",
    "keywords": "different unique stand out why hire special",
    "a": "I combine data analytics, data engineering and hands-on engineering experience: I've worked with live sensor data from real grinding machines, built cloud pipelines on Databricks and AWS, and delivered dashboards and IoT projects, not just tutorials.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "About",
    "q": "What are your interests?",
    "keywords": "interests hobbies passion like enjoy",
    "a": "My professional interests are Data Analytics, Data Engineering, Business Intelligence, Data Science, Machine Learning and Generative AI. Personal hobbies aren't listed on the portfolio.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "About",
    "q": "How was this website built?",
    "keywords": "website built made tech stack portfolio react three",
    "a": "This portfolio uses React, TypeScript, Vite, Tailwind CSS, Framer Motion and three.js for the 3D scenes. It includes an in-site terminal and this AI assistant, which uses the Gemini API through a serverless function.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "About",
    "q": "What languages do you speak?",
    "keywords": "languages speak spoken english hindi marathi",
    "a": "Spoken languages aren't listed on the portfolio. Please ask Omkar directly.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "Experience",
    "q": "What is your current role?",
    "keywords": "current role job working now autoline position",
-   "a": "I'm a Data Analyst at Autoline Industries Ltd. (June 2026 to present). My work there includes collecting live sensor data from industrial grinding machines.",
+   "a": "I'm a Data Analyst at Autoline Industries Ltd (June 2026 to present), working with live sensor data collected from industrial grinding machines.",
+   "ctx": "both",
    "pop": true
   },
   {
@@ -113,272 +179,55 @@
    "q": "Where do you work?",
    "keywords": "where work company employer organization",
    "a": "I work at Autoline Industries Ltd. as a Data Analyst.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "Experience",
    "q": "When did you start at Autoline?",
    "keywords": "start join began since when autoline june",
    "a": "My Data Analyst role at Autoline Industries Ltd. started in June 2026. I accepted the offer after a GET interview in June 2025.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Experience",
+   "q": "Tell me about your experience",
+   "keywords": "experience work history professional background",
+   "a": "Data Analyst at Autoline Industries Ltd (June 2026 to present) and a Project Management Internship at Lumax Cornaglia Auto Technologies Pvt Ltd (Jan to Feb 2026). I also did a Full Stack Development internship, which is covered in the Other Work section.",
+   "ctx": "data",
+   "pop": true
+  },
+  {
+   "group": "Experience",
+   "q": "Tell me about your experience",
+   "keywords": "experience work history professional background",
+   "a": "On the technical side beyond data: a Full Stack Development Internship at Drushya Digital India Pvt Ltd (Sept to Nov 2025), plus my final-year hardware/IoT project work. My current job is Data Analyst at Autoline Industries Ltd, covered on the main portfolio.",
+   "ctx": "other",
+   "pop": true
   },
   {
    "group": "Experience",
    "q": "What did you do as a Data Analyst at Autoline?",
    "keywords": "autoline analyst responsibilities duties tasks sensor grinding",
-   "a": "I collected live sensor data from physical industrial grinding machines. More detailed responsibilities aren't published on the site; feel free to email me for specifics.",
-   "pop": false
-  },
-  {
-   "group": "Experience",
-   "q": "What roles are you looking for?",
-   "keywords": "roles looking target hire position opportunity seeking",
-   "a": "Data Analyst, Data Engineer / Junior Data Engineer, Data Scientist / Junior Data Scientist, Business Intelligence and Data / ML roles.",
-   "pop": true
-  },
-  {
-   "group": "Experience",
-   "q": "Are you open to relocation?",
-   "keywords": "relocate relocation remote move shift open",
-   "a": "I'm based in Pune/Lonavala and open to relocation across India.",
-   "pop": false
-  },
-  {
-   "group": "Experience",
-   "q": "When can you join?",
-   "keywords": "join joining notice period available availability start date",
-   "a": "My joining date and notice period aren't published. I currently work at Autoline Industries Ltd., so please email me to discuss timing.",
-   "pop": false
-  },
-  {
-   "group": "Experience",
-   "q": "What is your salary expectation?",
-   "keywords": "salary expectation ctc pay compensation package",
-   "a": "I haven't published a salary expectation. Please email me to discuss.",
-   "pop": false
-  },
-  {
-   "group": "Education",
-   "q": "What is your education?",
-   "keywords": "education degree college school marks percentage cgpa qualification studies",
-   "a": "B.E. Robotics & Automation Engineering, D Y Patil College of Engineering, Akurdi, Pune (2022-2026), CGPA 8.90. HSC: D P Mehta Jr College, Lonavala (2021-2022), 64.33%. SSC: Adv Bapusaheb Bhonde High School, Lonavala (2019-2020), 80%.",
-   "pop": true
-  },
-  {
-   "group": "Education",
-   "q": "Which college did you attend?",
-   "keywords": "college university engineering institute attended",
-   "a": "D Y Patil College of Engineering, Akurdi, Pune, for my B.E. in Robotics & Automation Engineering (2022-2026).",
-   "pop": false
-  },
-  {
-   "group": "Education",
-   "q": "What is your CGPA?",
-   "keywords": "cgpa gpa grade engineering score",
-   "a": "My B.E. CGPA is 8.90 out of 10.",
-   "pop": false
-  },
-  {
-   "group": "Education",
-   "q": "What are your 12th marks?",
-   "keywords": "12th hsc twelfth junior college percentage",
-   "a": "HSC (12th): D P Mehta Jr College, Lonavala, 2021-2022, 64.33%.",
-   "pop": false
-  },
-  {
-   "group": "Education",
-   "q": "What are your 10th marks?",
-   "keywords": "10th ssc tenth school percentage",
-   "a": "SSC (10th): Adv Bapusaheb Bhonde High School, Lonavala, 2019-2020, 80%.",
-   "pop": false
-  },
-  {
-   "group": "Education",
-   "q": "When did you graduate?",
-   "keywords": "graduate graduation year passing completed",
-   "a": "My B.E. in Robotics & Automation Engineering covers 2022-2026.",
-   "pop": false
-  },
-  {
-   "group": "Skills",
-   "q": "What are your key skills?",
-   "keywords": "skills tech stack technologies tools know proficient",
-   "a": "Programming: Python, SQL, C++, JavaScript. Analytics: Power BI, Excel, DAX, EDA. Data engineering: Databricks, PySpark, AWS S3/Glue/Athena, ETL/ELT, Medallion architecture. Databases: MySQL, PostgreSQL, MongoDB. AI/ML: machine learning, NLP, generative AI, Gemini API.",
-   "pop": true
-  },
-  {
-   "group": "Skills",
-   "q": "Do you know Python?",
-   "keywords": "python pandas numpy programming",
-   "a": "Yes. I use Python with Pandas, NumPy, Matplotlib and Seaborn for analysis (for example the Airbnb EDA project) and with Flask for backends such as the AI ChatBot.",
-   "pop": false
-  },
-  {
-   "group": "Skills",
-   "q": "Do you know SQL?",
-   "keywords": "sql queries database mysql postgresql joins",
-   "a": "Yes. I use SQL for cleaning and analysis in projects like OLA, Zepto, Blinkit and Machine Monitoring, and in Databricks for the GoodCabs pipeline. I've worked with MySQL and PostgreSQL.",
-   "pop": false
-  },
-  {
-   "group": "Skills",
-   "q": "Do you know Power BI?",
-   "keywords": "power bi powerbi dashboard dax visualization",
-   "a": "Yes. I've built Power BI dashboards for Zepto inventory analysis, machine monitoring and OLA, and I also know Excel, DAX basics and Tableau for practice dashboards.",
-   "pop": false
-  },
-  {
-   "group": "Skills",
-   "q": "Do you know Tableau or Excel?",
-   "keywords": "tableau excel spreadsheet pivot",
-   "a": "Yes. I built an Excel Bike Sales dashboard and a Tableau Airbnb dashboard in my practice repository, and I use Excel for data preparation and reporting.",
-   "pop": false
-  },
-  {
-   "group": "Skills",
-   "q": "Do you know Databricks and PySpark?",
-   "keywords": "databricks pyspark spark delta lake notebooks",
-   "a": "Yes. My GoodCabs project is a Databricks pipeline using PySpark and SQL with Bronze, Silver and Gold layers.",
-   "pop": false
-  },
-  {
-   "group": "Skills",
-   "q": "What AWS services have you used?",
-   "keywords": "aws s3 glue athena quicksight databrew cloud",
-   "a": "Amazon S3, AWS Glue (Crawler, Data Catalog, ETL jobs), Glue DataBrew, Amazon Athena and QuickSight, in my AWS Healthcare Data Pipeline project.",
-   "pop": false
-  },
-  {
-   "group": "Skills",
-   "q": "What is the Medallion architecture?",
-   "keywords": "medallion architecture bronze silver gold layers",
-   "a": "It organises data into Bronze (raw), Silver (cleaned and standardised) and Gold (business-ready, analytics-ready) layers. I used it in GoodCabs so raw data stays untouched and analysts query clean Gold tables.",
-   "pop": false
-  },
-  {
-   "group": "Skills",
-   "q": "Do you have machine learning or AI experience?",
-   "keywords": "machine learning ml ai nlp generative gemini llm",
-   "a": "I'm exploring machine learning and generative AI. I built the AI ChatBot (React + Flask + Gemini Flash 2.0), and this portfolio's assistant also uses the Gemini API.",
-   "pop": false
-  },
-  {
-   "group": "Skills",
-   "q": "Which databases do you know?",
-   "keywords": "databases mysql postgresql mongodb cloud sql nosql",
-   "a": "MySQL, PostgreSQL, MongoDB and Cloud SQL.",
-   "pop": false
-  },
-  {
-   "group": "Skills",
-   "q": "Which tools do you use for development?",
-   "keywords": "tools git github vscode postman vercel netlify render deploy",
-   "a": "Git, GitHub, VS Code, Postman, and Vercel, Netlify and Render for deployment.",
-   "pop": false
-  },
-  {
-   "group": "Projects",
-   "q": "Have you worked with real data?",
-   "keywords": "real data industrial live sensor machine actual",
-   "a": "Yes. At Autoline I collected live sensor data from physical industrial grinding machines, and my SAMS and Machine Monitoring projects are based on that kind of machine data.",
-   "pop": false
-  },
-  {
-   "group": "Projects",
-   "q": "Do you have IoT experience?",
-   "keywords": "iot internet things sensors esp32 arduino hardware embedded",
-   "a": "Yes. I worked on the IoT Smart Chair Kit (ESP32, Arduino, flex/force sensors, load cells, Blynk) and SAMS, which monitors grinding machines with live sensor data and a web dashboard.",
-   "pop": false
-  },
-  {
-   "group": "Projects",
-   "q": "Tell me about the GoodCabs project",
-   "keywords": "goodcabs good cabs databricks medallion transportation",
-   "a": "GoodCabs is an end-to-end data engineering project: raw city and trip data flows from AWS S3 into Databricks and through Bronze, Silver and Gold layers using PySpark and SQL, producing analytics-ready datasets for Power BI and SQL analysis.",
-   "pop": true
-  },
-  {
-   "group": "Projects",
-   "q": "Tell me about the AWS healthcare pipeline",
-   "keywords": "aws healthcare patient glue athena quicksight databrew pipeline",
-   "a": "It takes raw patient CSV files through Amazon S3, Glue DataBrew (profiling and cleaning), a Glue Crawler and Data Catalog, a Glue ETL job, Athena SQL queries and a QuickSight dashboard, a serverless 10-step workflow.",
-   "pop": false
-  },
-  {
-   "group": "Projects",
-   "q": "Tell me about the Machine Monitoring project",
-   "keywords": "machine monitoring m2 m35 manufacturing kpi grinding",
-   "a": "It analyses manufacturing machine-monitoring data for the M2 and M35 machines: cleaning raw data, SQL analysis, KPI calculation and dashboards in Power BI and Excel.",
-   "pop": false
-  },
-  {
-   "group": "Projects",
-   "q": "Tell me about the Airbnb analysis",
-   "keywords": "airbnb nyc eda python listings price manhattan",
-   "a": "I analysed 20,770 Airbnb listings with 22 attributes using Python. Manhattan had higher average prices, entire homes cost more than private rooms, beds vs price correlation is about 0.42 and reviews vs reviews-per-month about 0.63.",
-   "pop": false
-  },
-  {
-   "group": "Projects",
-   "q": "Tell me about the OLA project",
-   "keywords": "ola ride booking cab analytics",
-   "a": "I analysed a 100,000-row Ola booking dataset with SQL cleaning and analysis scripts, a Power BI dashboard, a PDF report and a presentation, covering bookings, cancellations, customers, vehicles and revenue.",
-   "pop": false
-  },
-  {
-   "group": "Projects",
-   "q": "Tell me about the Zepto project",
-   "keywords": "zepto inventory quick commerce discount stock",
-   "a": "It's an SQL-first analysis of Zepto product, pricing, discount and stock data, with a Power BI inventory dashboard that shows KPI cards and breakdowns.",
-   "pop": false
-  },
-  {
-   "group": "Projects",
-   "q": "Tell me about the Blinkit project",
-   "keywords": "blinkit grocery retail outlet",
-   "a": "A grocery analytics project using SQL, Excel and Power BI to track sales, product, outlet and category KPIs.",
-   "pop": false
-  },
-  {
-   "group": "Contact",
-   "q": "How can I contact you?",
-   "keywords": "contact email reach hire connect message",
-   "a": "Email: omkaryelsange1010@gmail.com. LinkedIn: linkedin.com/in/omkar-yelsange. GitHub: github.com/OmkarYelsange. You can also use the contact form on this site.",
-   "pop": true
-  },
-  {
-   "group": "Contact",
-   "q": "Where can I see your resume?",
-   "keywords": "resume cv download",
-   "a": "Use the Resume button on this site to view or download my resume.",
-   "pop": false
-  },
-  {
-   "group": "Contact",
-   "q": "What is your GitHub?",
-   "keywords": "github code repositories repo source",
-   "a": "github.com/OmkarYelsange. My data projects are in Databricks-Projects, AWS-DA, Data-Analytics-Projects and Data-Analyst.",
-   "pop": false
-  },
-  {
-   "group": "Contact",
-   "q": "What is your LinkedIn?",
-   "keywords": "linkedin profile network",
-   "a": "linkedin.com/in/omkar-yelsange",
-   "pop": false
-  },
-  {
-   "group": "Experience",
-   "q": "Tell me about your experience",
-   "keywords": "experience work history professional background internships",
-   "a": "I have three experiences: Data Analyst at Autoline Industries Ltd (June 2026 to present), a Project Management Internship at Lumax Cornaglia Auto Technologies Pvt Ltd (Jan to Feb 2026) and a Full Stack Development Internship at Drushya Digital India Pvt Ltd (Sept to Nov 2025).",
-   "pop": true
+   "a": "I work as a Data Analyst at Autoline Industries Ltd (June 2026 to present) with live sensor data collected from physical industrial grinding machines. More detailed responsibilities aren't published; feel free to email me.",
+   "pop": false,
+   "ctx": "data"
   },
   {
    "group": "Experience",
    "q": "Tell me about your internships",
    "keywords": "internships internship intern interned",
-   "a": "I did two internships: Project Management at Lumax Cornaglia Auto Technologies Pvt Ltd (Jan 2026 to Feb 2026) and Full Stack Development at Drushya Digital India Pvt Ltd (Sept 2025 to Nov 2025).",
+   "a": "In the data portfolio: a Project Management Internship at Lumax Cornaglia Auto Technologies Pvt Ltd (Jan to Feb 2026). I also completed a Full Stack Development internship, described in the Other Work section.",
+   "ctx": "data",
+   "pop": false
+  },
+  {
+   "group": "Experience",
+   "q": "Tell me about your internships",
+   "keywords": "internships internship intern interned",
+   "a": "I interned as a Full Stack Developer at Drushya Digital India Pvt Ltd (Sept to Nov 2025). My other internship, in project management at Lumax Cornaglia, is on the main portfolio.",
+   "ctx": "other",
    "pop": false
   },
   {
@@ -386,62 +235,367 @@
    "q": "What did you do at Lumax Cornaglia?",
    "keywords": "lumax cornaglia project management intern",
    "a": "I was a Project Management Intern at Lumax Cornaglia Auto Technologies Pvt Ltd from January to February 2026. Detailed responsibilities aren't published on the site.",
-   "pop": false
+   "pop": false,
+   "ctx": "data"
   },
   {
    "group": "Experience",
-   "q": "What did you do at Drushya Digital?",
+   "q": "What did you do at Drushya Digital (Full Stack)?",
    "keywords": "drushya digital full stack developer intern web",
    "a": "I was a Full Stack Development Intern at Drushya Digital India Pvt Ltd from September to November 2025. Detailed responsibilities aren't published on the site.",
-   "pop": false
+   "pop": true,
+   "ctx": "other"
   },
   {
    "group": "Experience",
-   "q": "What did you do as a Data Analyst at Autoline?",
-   "keywords": "autoline analyst responsibilities duties tasks sensor grinding",
-   "a": "I work as a Data Analyst at Autoline Industries Ltd (June 2026 to present). I collected live sensor data from physical industrial grinding machines. More detailed responsibilities aren't published; feel free to email me.",
-   "pop": false
+   "q": "What roles are you looking for?",
+   "keywords": "roles looking target hire position opportunity seeking",
+   "a": "Data Analyst, Data Engineer / Junior Data Engineer, Data Scientist / Junior Data Scientist, Business Intelligence and Data / ML roles.",
+   "pop": true,
+   "ctx": "both"
+  },
+  {
+   "group": "Experience",
+   "q": "Are you open to relocation?",
+   "keywords": "relocate relocation remote move shift open",
+   "a": "I'm based in Pune/Lonavala and open to relocation across India.",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Experience",
+   "q": "When can you join?",
+   "keywords": "join joining notice period available availability start date",
+   "a": "My joining date and notice period aren't published. I currently work at Autoline Industries Ltd., so please email me to discuss timing.",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Experience",
+   "q": "What is your salary expectation?",
+   "keywords": "salary expectation ctc pay compensation package",
+   "a": "I haven't published a salary expectation. Please email me to discuss.",
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "Experience",
    "q": "How many years of experience do you have?",
    "keywords": "years experience fresher how long total",
    "a": "I started my Data Analyst role in June 2026 and completed two internships in 2025-2026, so I'm early in my career with hands-on project and industry experience.",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Education",
+   "q": "What is your education?",
+   "keywords": "education degree college school marks percentage cgpa qualification studies",
+   "a": "B.E. Robotics & Automation Engineering, D Y Patil College of Engineering, Akurdi, Pune (2022-2026), CGPA 8.90. HSC: D P Mehta Jr College, Lonavala (2021-2022), 64.33%. SSC: Adv Bapusaheb Bhonde High School, Lonavala (2019-2020), 80%.",
+   "pop": true,
+   "ctx": "both"
+  },
+  {
+   "group": "Education",
+   "q": "Which college did you attend?",
+   "keywords": "college university engineering institute attended",
+   "a": "D Y Patil College of Engineering, Akurdi, Pune, for my B.E. in Robotics & Automation Engineering (2022-2026).",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Education",
+   "q": "What is your CGPA?",
+   "keywords": "cgpa gpa grade engineering score",
+   "a": "My B.E. CGPA is 8.90 out of 10.",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Education",
+   "q": "What are your 12th marks?",
+   "keywords": "12th hsc twelfth junior college percentage",
+   "a": "HSC (12th): D P Mehta Jr College, Lonavala, 2021-2022, 64.33%.",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Education",
+   "q": "What are your 10th marks?",
+   "keywords": "10th ssc tenth school percentage",
+   "a": "SSC (10th): Adv Bapusaheb Bhonde High School, Lonavala, 2019-2020, 80%.",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Education",
+   "q": "When did you graduate?",
+   "keywords": "graduate graduation year passing completed",
+   "a": "My B.E. in Robotics & Automation Engineering covers 2022-2026.",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Skills",
+   "q": "What are your key skills?",
+   "keywords": "skills tech stack technologies tools know proficient",
+   "a": "Analytics & BI: Power BI, Excel, Tableau, DAX, EDA. Data engineering & cloud: Databricks, PySpark, Delta Lake, AWS S3/Glue/Athena, ETL/ELT, Medallion architecture. Programming & databases: Python, SQL, Pandas, NumPy, MySQL, PostgreSQL, MongoDB. Data science: statistics, machine learning, NLP, generative AI.",
+   "ctx": "data",
+   "pop": true
+  },
+  {
+   "group": "Skills",
+   "q": "What are your key skills?",
+   "keywords": "skills tech stack technologies tools know proficient",
+   "a": "Full stack: React, Next.js, Node.js, Express, Flask, Django, Firebase, MongoDB. Robotics/IoT: C++, Arduino, ESP32, sensors, load cells, Blynk.",
+   "ctx": "other",
+   "pop": true
+  },
+  {
+   "group": "Skills",
+   "q": "Do you know Python?",
+   "keywords": "python pandas numpy programming",
+   "a": "Yes. I use Python with Pandas, NumPy, Matplotlib and Seaborn for analysis (for example the Airbnb EDA project) and with Flask for backends such as the AI ChatBot.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Skills",
+   "q": "Do you know SQL?",
+   "keywords": "sql queries database mysql postgresql joins",
+   "a": "Yes. I use SQL for cleaning and analysis in projects like OLA, Zepto, Blinkit and Machine Monitoring, and in Databricks for the GoodCabs pipeline. I've worked with MySQL and PostgreSQL.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Skills",
+   "q": "Do you know Power BI?",
+   "keywords": "power bi powerbi dashboard dax visualization",
+   "a": "Yes. I've built Power BI dashboards for Zepto inventory analysis, machine monitoring and OLA, and I also know Excel, DAX basics and Tableau for practice dashboards.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Skills",
+   "q": "Do you know Tableau or Excel?",
+   "keywords": "tableau excel spreadsheet pivot",
+   "a": "Yes. I built an Excel Bike Sales dashboard and a Tableau Airbnb dashboard in my practice repository, and I use Excel for data preparation and reporting.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Skills",
+   "q": "Do you know Databricks and PySpark?",
+   "keywords": "databricks pyspark spark delta lake notebooks",
+   "a": "Yes. My GoodCabs project is a Databricks pipeline using PySpark and SQL with Bronze, Silver and Gold layers.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Skills",
+   "q": "What AWS services have you used?",
+   "keywords": "aws s3 glue athena quicksight databrew cloud",
+   "a": "Amazon S3, AWS Glue (Crawler, Data Catalog, ETL jobs), Glue DataBrew, Amazon Athena and QuickSight, in my AWS Healthcare Data Pipeline project.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Skills",
+   "q": "What is the Medallion architecture?",
+   "keywords": "medallion architecture bronze silver gold layers",
+   "a": "It organises data into Bronze (raw), Silver (cleaned and standardised) and Gold (business-ready, analytics-ready) layers. I used it in GoodCabs so raw data stays untouched and analysts query clean Gold tables.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Skills",
+   "q": "Do you have machine learning or AI experience?",
+   "keywords": "machine learning ml ai nlp generative gemini llm",
+   "a": "I'm exploring machine learning and generative AI. I built the AI ChatBot (React + Flask + Gemini Flash 2.0), and this portfolio's assistant also uses the Gemini API.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Skills",
+   "q": "Which databases do you know?",
+   "keywords": "databases mysql postgresql mongodb cloud sql nosql",
+   "a": "MySQL, PostgreSQL, MongoDB and Cloud SQL.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Skills",
+   "q": "Which tools do you use for development?",
+   "keywords": "tools git github vscode postman vercel netlify render deploy",
+   "a": "Git, GitHub, VS Code, Postman, and Vercel, Netlify and Render for deployment.",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Skills",
+   "q": "Do you have data science experience?",
+   "keywords": "data science scientist statistics machine learning modelling models",
+   "a": "My data science work is mainly exploratory and statistical analysis in Python (for example correlation analysis on 20,770 Airbnb listings). Machine learning and generative AI are areas I'm actively building on, including working with the Gemini API.",
+   "ctx": "data",
+   "pop": false
+  },
+  {
+   "group": "Skills",
+   "q": "What tech stack do you use for web apps?",
+   "keywords": "web stack react node express flask django firebase frontend backend",
+   "a": "React, Next.js, Node.js and Express on the JavaScript side, Flask and Django on the Python side, with MongoDB, SQLite and Firebase for data, Clerk for authentication in some apps.",
+   "ctx": "other",
+   "pop": false
+  },
+  {
+   "group": "Skills",
+   "q": "Do you know Arduino or ESP32?",
+   "keywords": "arduino esp32 embedded microcontroller c++ blynk",
+   "a": "Yes. I used ESP32 and Arduino Uno with flex/force sensors and load cells in the IoT Smart Chair Kit, with a Blynk dashboard, and worked with sensor data in the SAMS final-year project.",
+   "ctx": "other",
    "pop": false
   },
   {
    "group": "Projects",
    "q": "Which projects should I look at first?",
    "keywords": "projects best first top featured portfolio work",
-   "a": "Start with GoodCabs (Databricks + PySpark Medallion pipeline), the AWS Healthcare Data Pipeline, Airbnb NYC EDA and the OLA/Zepto dashboards. Then see SAMS (hardware plus dashboard) and the web apps.",
+   "a": "Start with GoodCabs (Databricks + PySpark Medallion pipeline), the AWS Healthcare Data Pipeline, Airbnb NYC EDA, and the OLA and Zepto dashboards. All have full case studies.",
+   "ctx": "data",
    "pop": true
   },
   {
    "group": "Projects",
-   "q": "List all your projects",
-   "keywords": "list all projects every portfolio repositories",
-   "a": "Data Analytics/Engineering: GoodCabs, AWS Healthcare Pipeline, Machine Monitoring, Airbnb NYC, OLA, Zepto, Blinkit, Databricks Lakehouse Projects, Data Analyst Practice Lab. Software/Web: SAMS Dashboard, AI ChatBot, DeepSeek Clone, YouTube Downloader, Chat App, E-Commerce Store, AirBnB Clone, Voting System, IoT Device Platform, Tools & Jobs (private). Hardware: SAMS and the IoT Smart Chair Kit.",
+   "q": "What data engineering projects have you worked on?",
+   "keywords": "data engineering projects pipeline etl databricks aws lakehouse",
+   "a": "GoodCabs Analytics Platform (Databricks, PySpark, Bronze/Silver/Gold layers on AWS S3 data), the Databricks Lakehouse Projects (Spark, Delta Lake), and the AWS Healthcare Data Pipeline (S3, Glue DataBrew, Glue ETL, Athena, QuickSight).",
+   "ctx": "data",
+   "pop": true
+  },
+  {
+   "group": "Projects",
+   "q": "What data analytics projects have you worked on?",
+   "keywords": "data analytics projects dashboards eda sql power bi",
+   "a": "Airbnb NYC EDA (Python, 20,770 listings), OLA Ride Analytics (SQL + Power BI, 100,000 bookings), Zepto Inventory Analysis, Blinkit Grocery Analytics, Machine Monitoring Analytics (M2 & M35) and a practice lab with Excel, MySQL, Power BI and Tableau dashboards.",
+   "ctx": "data",
+   "pop": false
+  },
+  {
+   "group": "Projects",
+   "q": "List all your data projects",
+   "keywords": "list all projects every portfolio repositories data",
+   "a": "GoodCabs, AWS Healthcare Pipeline, Machine Monitoring Analytics, Airbnb NYC EDA, OLA Ride Analytics, Zepto Inventory Analysis, Blinkit Grocery Analytics, Databricks Lakehouse Projects and the Data Analyst Practice Lab.",
+   "ctx": "data",
    "pop": false
   },
   {
    "group": "Projects",
    "q": "What project categories do you have?",
    "keywords": "categories category types kinds groups",
-   "a": "Four categories, in order of preference: Data Analytics and Data Engineering, Software / Web Development, and Hardware.",
+   "a": "The main portfolio is Data Analytics and Data Engineering. My full-stack, robotics, IoT and hardware projects are in the Other Work section.",
+   "ctx": "data",
    "pop": false
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about the GoodCabs project",
+   "keywords": "goodcabs good cabs databricks medallion transportation",
+   "a": "GoodCabs is an end-to-end data engineering project: raw city and trip data flows from AWS S3 into Databricks and through Bronze, Silver and Gold layers using PySpark and SQL, producing analytics-ready datasets for Power BI and SQL analysis.",
+   "pop": true,
+   "ctx": "data"
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about the AWS healthcare pipeline",
+   "keywords": "aws healthcare patient glue athena quicksight databrew pipeline",
+   "a": "It takes raw patient CSV files through Amazon S3, Glue DataBrew (profiling and cleaning), a Glue Crawler and Data Catalog, a Glue ETL job, Athena SQL queries and a QuickSight dashboard, a serverless 10-step workflow.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about the Machine Monitoring project",
+   "keywords": "machine monitoring m2 m35 manufacturing kpi grinding",
+   "a": "It analyses manufacturing machine-monitoring data for the M2 and M35 machines: cleaning raw data, SQL analysis, KPI calculation and dashboards in Power BI and Excel.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about the Airbnb analysis",
+   "keywords": "airbnb nyc eda python listings price manhattan",
+   "a": "I analysed 20,770 Airbnb listings with 22 attributes using Python. Manhattan had higher average prices, entire homes cost more than private rooms, beds vs price correlation is about 0.42 and reviews vs reviews-per-month about 0.63.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about the OLA project",
+   "keywords": "ola ride booking cab analytics",
+   "a": "I analysed a 100,000-row Ola booking dataset with SQL cleaning and analysis scripts, a Power BI dashboard, a PDF report and a presentation, covering bookings, cancellations, customers, vehicles and revenue.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about the Zepto project",
+   "keywords": "zepto inventory quick commerce discount stock",
+   "a": "It's an SQL-first analysis of Zepto product, pricing, discount and stock data, with a Power BI inventory dashboard that shows KPI cards and breakdowns.",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about the Blinkit project",
+   "keywords": "blinkit grocery retail outlet",
+   "a": "A grocery analytics project using SQL, Excel and Power BI to track sales, product, outlet and category KPIs.",
+   "pop": false,
+   "ctx": "data"
   },
   {
    "group": "Projects",
    "q": "Which project is best for data engineering?",
    "keywords": "data engineering best pipeline etl project",
-   "a": "GoodCabs (Databricks, PySpark, Medallion architecture) and the Databricks Lakehouse Projects; the AWS Healthcare pipeline (S3, Glue, Athena) is also a pipeline project.",
-   "pop": false
+   "a": "GoodCabs (Databricks, PySpark, Medallion architecture) and the Databricks Lakehouse Projects; the AWS Healthcare pipeline (S3, Glue, Athena) is another pipeline project.",
+   "pop": false,
+   "ctx": "data"
   },
   {
    "group": "Projects",
    "q": "Which project is best for data analytics?",
    "keywords": "data analytics best analysis eda project",
    "a": "Airbnb NYC EDA (Python), OLA Ride Analytics (SQL, Power BI), Zepto Inventory Analysis and Machine Monitoring (Power BI).",
+   "pop": false,
+   "ctx": "data"
+  },
+  {
+   "group": "Projects",
+   "q": "Have you worked with real data?",
+   "keywords": "real data industrial live sensor machine actual",
+   "a": "Yes. At Autoline I work with live sensor data from physical industrial grinding machines, and my Machine Monitoring Analytics project analyses real manufacturing machine data with SQL and Power BI.",
+   "ctx": "both",
+   "pop": false
+  },
+  {
+   "group": "Projects",
+   "q": "Which projects should I look at first?",
+   "keywords": "projects best first top featured portfolio work",
+   "a": "Start with the SAMS Dashboard and SAMS hardware project, the IoT Smart Chair Kit, then the web apps: DeepSeek Clone, the YouTube downloader and the real-time chat app.",
+   "ctx": "other",
+   "pop": true
+  },
+  {
+   "group": "Projects",
+   "q": "List all your other projects",
+   "keywords": "list all projects every portfolio repositories other work",
+   "a": "Software / Web: SAMS Dashboard, AI ChatBot, DeepSeek Clone, YouTube Video & Audio Downloader, Chat App, E-Commerce Store, AirBnB Clone, Voting System, IoT Device Platform, Tools & Jobs (private). Hardware: SAMS and the IoT Smart Chair Kit.",
+   "ctx": "other",
+   "pop": false
+  },
+  {
+   "group": "Projects",
+   "q": "What project categories do you have?",
+   "keywords": "categories category types kinds groups",
+   "a": "Software / Web Development and Hardware (robotics, IoT, embedded). My data analytics and data engineering projects are on the main portfolio.",
+   "ctx": "other",
    "pop": false
   },
   {
@@ -449,98 +603,192 @@
    "q": "What web development projects have you built?",
    "keywords": "web development software projects react next flask django full stack apps",
    "a": "SAMS Dashboard, AI ChatBot, DeepSeek Clone, YouTube Video & Audio Downloader, Real-Time Chat App, React E-Commerce Store, AirBnB Clone, Voting System and the IoT Device Platform, using React, Next.js, Node.js, Express, Flask, Django and Firebase.",
-   "pop": false
+   "pop": true,
+   "ctx": "other"
   },
   {
    "group": "Projects",
    "q": "What hardware projects have you built?",
    "keywords": "hardware iot sensors embedded projects esp32 arduino",
    "a": "SAMS (Smart Abrasive Monitoring System), my final-year sensor-based grinding-wheel monitoring project, and the IoT Smart Chair Kit (ESP32 + Arduino Uno with posture and load sensors and a Blynk dashboard).",
-   "pop": false
+   "pop": true,
+   "ctx": "other"
   },
   {
    "group": "Projects",
    "q": "What is SAMS?",
    "keywords": "sams smart abrasive monitoring system final year project dashboard",
    "a": "SAMS is my final-year Smart Abrasive Monitoring System: sensors and data collection on physical grinding machines to monitor grinding wheel efficiency, plus a web dashboard (React, Node.js, Express) for real-time monitoring. I was team lead and member.",
-   "pop": false
+   "pop": true,
+   "ctx": "other"
   },
   {
    "group": "Projects",
    "q": "Tell me about the Smart Chair Kit",
    "keywords": "smart chair kit posture sitting blynk esp32",
    "a": "It's an attachable IoT kit that tracks posture, sitting time and weight distribution, alerts you about prolonged sitting and shows live data on a Blynk dashboard. My part was IoT integration and documentation in a team of four.",
-   "pop": false
+   "pop": false,
+   "ctx": "other"
   },
   {
    "group": "Projects",
    "q": "Tell me about the AI ChatBot project",
    "keywords": "chatbot ai chat gemini flask react",
    "a": "It's a conversational AI app with a React + Vite + Tailwind frontend and a Flask backend calling Google's Gemini Flash 2.0 API, with the API key kept on the server. It's in my Software / Web category.",
-   "pop": false
+   "pop": false,
+   "ctx": "other"
   },
   {
    "group": "Projects",
    "q": "Tell me about your web apps",
    "keywords": "chat app e-commerce deepseek youtube downloader airbnb voting iot website apps",
    "a": "Examples: a DeepSeek-style AI chat in Next.js with Clerk auth and MongoDB, a Flask YouTube downloader with accounts and history, a real-time chat app (React, Firebase), a React e-commerce store, an Express AirBnB clone, a Django voting system and an IoT device platform with real-time charts.",
+   "pop": false,
+   "ctx": "other"
+  },
+  {
+   "group": "Projects",
+   "q": "Do you have IoT experience?",
+   "keywords": "iot internet things sensors esp32 arduino hardware embedded",
+   "a": "Yes. I worked on the IoT Smart Chair Kit (ESP32, Arduino, flex/force sensors, load cells, Blynk) and SAMS, which monitors grinding machines with live sensor data and a web dashboard.",
+   "pop": false,
+   "ctx": "other"
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about the IoT Device Platform",
+   "keywords": "iot device platform socket real-time monitoring charts react express mongodb",
+   "a": "A full-stack IoT platform with a React + Tailwind frontend, Node.js/Express and MongoDB backend, Socket.io for real-time updates, Recharts for charts, JWT authentication and multi-user support.",
+   "ctx": "other",
    "pop": false
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about the YouTube downloader",
+   "keywords": "youtube downloader flask yt-dlp ffmpeg mp3 mp4",
+   "a": "A Flask web app with registration and login where users download YouTube videos as MP4 (up to 720p) or MP3 (192 kbps), with a personal download history, SQLite storage, yt-dlp and ffmpeg.",
+   "ctx": "other",
+   "pop": false
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about the DeepSeek clone",
+   "keywords": "deepseek clone next.js clerk mongodb ai chat",
+   "a": "A DeepSeek-style AI chat app built with Next.js and React, with Clerk sign-in, MongoDB storage and formatted Markdown answers with code highlighting.",
+   "ctx": "other",
+   "pop": false
+  },
+  {
+   "group": "Projects",
+   "q": "Tell me about your final-year project",
+   "keywords": "final year project sams grinding capstone",
+   "a": "SAMS (Smart Abrasive Monitoring System): sensor-based monitoring of grinding wheel efficiency in surface grinding, using live data from physical grinding machines, with a web dashboard. I was team lead and member, and I presented a paper on it.",
+   "ctx": "other",
+   "pop": true
+  },
+  {
+   "group": "Projects",
+   "q": "What robotics experience do you have?",
+   "keywords": "robotics automation engineering robot",
+   "a": "My degree is B.E. Robotics & Automation Engineering, and I've built IoT and sensor-based hardware projects (IoT Smart Chair Kit, SAMS). My current career focus is data.",
+   "ctx": "other",
+   "pop": false
+  },
+  {
+   "group": "Contact",
+   "q": "How can I contact you?",
+   "keywords": "contact email reach hire connect message",
+   "a": "Email: omkaryelsange1010@gmail.com. LinkedIn: linkedin.com/in/omkar-yelsange. GitHub: github.com/OmkarYelsange. You can also use the contact form on this site.",
+   "pop": true,
+   "ctx": "both"
+  },
+  {
+   "group": "Contact",
+   "q": "Where can I see your resume?",
+   "keywords": "resume cv download",
+   "a": "Use the Resume button on this site to view or download my resume.",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Contact",
+   "q": "What is your GitHub?",
+   "keywords": "github code repositories repo source",
+   "a": "github.com/OmkarYelsange. My data projects are in Databricks-Projects, AWS-DA, Data-Analytics-Projects and Data-Analyst.",
+   "pop": false,
+   "ctx": "both"
+  },
+  {
+   "group": "Contact",
+   "q": "What is your LinkedIn?",
+   "keywords": "linkedin profile network",
+   "a": "linkedin.com/in/omkar-yelsange",
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "About",
    "q": "What are your achievements?",
    "keywords": "achievements awards recognition won prizes competition",
    "a": "Highlights: First Consolation Prize and Runner-up at Utkarsh 2K25 (national project-level competition, March 2025), DIPEX state-level finalist (April 2025), and a paper presented in May 2025 on sensor-based monitoring of grinding wheel efficiency.",
-   "pop": true
+   "pop": true,
+   "ctx": "both"
   },
   {
    "group": "Certifications",
    "q": "What certifications do you have?",
    "keywords": "certification certificate certified courses ibm deloitte forage",
    "a": "Deloitte Data Analytics Job Simulation (March 2026), Python 101 for Data Science (IBM Cognitive Class, Jan 2025) and Prompt Engineering for Everyone (IBM Cognitive Class, Nov 2024), plus a paper-presentation certificate (May 2025) and the Utkarsh and DIPEX competition recognitions.",
-   "pop": true
+   "pop": true,
+   "ctx": "both"
   },
   {
    "group": "Certifications",
    "q": "Do you have a Deloitte certificate?",
    "keywords": "deloitte job simulation data analytics forage",
    "a": "Yes, the Deloitte Data Analytics Job Simulation certificate (March 2026).",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "Certifications",
    "q": "Do you have IBM certificates?",
    "keywords": "ibm cognitive class python prompt engineering",
    "a": "Yes: Python 101 for Data Science (Jan 2025) and Prompt Engineering for Everyone (Nov 2024), both from IBM Cognitive Class.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "Certifications",
    "q": "Have you published or presented a paper?",
    "keywords": "paper research publication published presented conference journal",
    "a": "Yes. I presented the paper 'Sensor-based Monitoring of Grinding Wheel Efficiency in Surface Grinding Operation' (certificate May 2025, D Y Patil College of Engineering, Pune), based on my final-year work.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "Certifications",
    "q": "What competitions have you taken part in?",
    "keywords": "competition utkarsh dipex finalist runner prize tech fest",
    "a": "Utkarsh 2K25 national project-level competition (First Consolation Prize / runner-up, March 2025), DIPEX state-level competition finalist (April 2025), and Tech Fest participation.",
-   "pop": false
+   "pop": false,
+   "ctx": "both"
   },
   {
    "group": "Co-curricular",
    "q": "What co-curricular activities do you do?",
    "keywords": "co-curricular extracurricular activities club sara tech fest leadership team lead",
    "a": "I was an active team member of the SARA club in college (2024-2025), participated actively in Tech Fest, took part in Utkarsh 2K25 and DIPEX, and was an active team lead and member for my final-year project.",
-   "pop": true
+   "pop": true,
+   "ctx": "both"
   },
   {
    "group": "Co-curricular",
    "q": "Have you led a team?",
    "keywords": "lead leadership team lead led captain",
-   "a": "Yes, I was an active team lead and member for my final-year project (SAMS).",
-   "pop": false
+   "a": "Yes, I was an active team lead and member of my final-year project.",
+   "pop": false,
+   "ctx": "both"
   }
  ]
 }

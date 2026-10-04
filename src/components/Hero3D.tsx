@@ -34,10 +34,10 @@ export default function Hero3D() {
     let tx = 0, ty = 0; const mv = (e: PointerEvent) => { const b = el.getBoundingClientRect(); tx = ((e.clientX - b.left) / b.width - 0.5) * 0.6; ty = ((e.clientY - b.top) / b.height - 0.5) * 0.3 }
     el.addEventListener('pointermove', mv)
     let raf = 0, visible = true; const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting }); io.observe(el)
-    const clock = new THREE.Clock()
+    let last = performance.now()
     const frame = () => {
       raf = requestAnimationFrame(frame); if (!visible || document.hidden) return
-      const dt = Math.min(clock.getDelta(), 0.05); const light = document.documentElement.dataset.theme === 'light'
+      const nowT = performance.now(); const dt = Math.min((nowT - last) / 1000, 0.05); last = nowT; const light = document.documentElement.dataset.theme === 'light'
       pm.color.set(palette()[0]); slabs.forEach((s, i) => { s.opacity = light ? 0.3 : 0.18; const c = light ? LT[i] : layers[i][0]; s.color.set(c); edges[i].color.set(c) })
       group.rotation.y += (dt * 0.25) + (tx - group.rotation.y % (Math.PI * 2) * 0) * 0; group.rotation.x += ((0.4 + ty) - group.rotation.x) * 0.05
       for (let i = 0; i < N; i++) { pos[i * 3 + 1] += spd[i] * dt; if (pos[i * 3 + 1] > 3.4) seed(i, -3.4) }

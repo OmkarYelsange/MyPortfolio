@@ -208,3 +208,10 @@ const base: Project[] = [
 const order = ['goodcabs', 'aws-healthcare', 'machine-monitoring', 'airbnb', 'ola', 'zepto', 'blinkit', 'databricks-lab', 'data-analyst-lab', 'sams-dashboard', 'ai-chatbot', 'deepseek-clone', 'youtube-downloader', 'chat-app', 'ecommerce', 'airbnb-clone', 'voting-system', 'iot-website', 'tools-and-jobs', 'sams-hardware', 'smart-chair-kit']
 // Display order: Data Analytics / Data Engineering first, then Software / Web, then Hardware.
 export const projects: Project[] = order.map(id => base.find(p => p.id === id)!)
+
+// Primary portfolio = data work; everything else lives on the Other Work page.
+export const isData = (p: Project) => p.category === 'Data Analytics' || p.category === 'Data Engineering'
+export const dataProjects = projects.filter(isData)
+export const otherProjects = projects.filter(p => !isData(p))
+export const dataCategories: Category[] = ['Data Analytics', 'Data Engineering']
+export const otherCategories: Category[] = ['Software / Web Development', 'Hardware']

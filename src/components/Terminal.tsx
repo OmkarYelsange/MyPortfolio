@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Maximize2, Minimize2, X } from 'lucide-react'
-import { projects } from '../data/projects'
+import { dataProjects, otherProjects, projects } from '../data/projects'
+import { usePageContext } from '../lib/pageContext'
 import { skills } from '../data/skills'
 import { experience } from '../data/experience'
 import { education } from '../data/education'
@@ -13,22 +14,24 @@ import { askAssistant } from '../lib/assistant'
 type Line = { k: 'in' | 'out' | 'err'; t: string }
 type Cmd = (a: string[]) => string[] | Promise<string[]> | void
 const sections = ['about', 'work', 'skills', 'experience', 'education', 'certifications', 'activities', 'github', 'contact']
-const banner: Line[] = ['Omkar Yelsange: Data Analyst · Data Engineer · Data & ML Enthusiast', "Type 'help' for commands. Try: projects, goto experience, ask what is your current role", ''].map(t => ({ k: 'out', t }))
+const banner: Line[] = ['Omkar Yelsange: Data Analytics · Data Engineering · Data Science', "Type 'help' for commands. Try: projects, goto experience, ask what is your current role", ''].map(t => ({ k: 'out', t }))
 
 export default function Terminal() {
-  const [open, setOpen] = useState(false); const [big, setBig] = useState(false); const [lines, setLines] = useState<Line[]>(banner); const [val, setVal] = useState('')
+  const ctx = usePageContext(); const [open, setOpen] = useState(false); const [big, setBig] = useState(false); const [lines, setLines] = useState<Line[]>(banner); const [val, setVal] = useState('')
   const hist = useRef<string[]>([]); const hi = useRef(-1); const inp = useRef<HTMLInputElement>(null); const end = useRef<HTMLDivElement>(null); const nav = useNavigate()
   const go = (id: string) => { nav('/'); setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 120) }
   const theme = (t: 'dark' | 'light') => window.dispatchEvent(new CustomEvent('set-theme', { detail: t }))
   const show = (id: string, out: string[]): Cmd => () => { go(id); return out }
 
   const cmds: Record<string, Cmd> = {
-    help: () => ['about · work · skills · experience · education · certifications · activities · contact   print a section and jump to it', 'projects                 list projects      open <id>   open a case study', 'goto <section>          ' + sections.join(' | '), 'ask <question>          ask the AI assistant', 'theme dark|light        resume · github · linkedin · neofetch · clear · max · min · exit', 'Tab autocompletes, ↑/↓ browse history.'],
+    help: () => ['about · work · skills · experience · education · certifications · activities · contact   print a section and jump to it', 'projects                 list projects      open <id>   open a case study', 'goto <section>          ' + sections.join(' | '), 'ask <question>          ask the AI assistant', 'theme dark|light        other (Other Work) · home (data portfolio) · resume · github · linkedin · neofetch · clear · max · min · exit', 'Tab autocompletes, ↑/↓ browse history.'],
     whoami: () => ['omkar: Data Analyst @ Autoline Industries Ltd. (June 2026 – present)'],
     neofetch: () => ['  ┌──────────┐   omkar@portfolio', '  │ ▂ ▅ ▇ ▆ │   ───────────────', '  │ DATA LAB │   role: Data Analyst | Data Engineer', '  └──────────┘   stack: Python, SQL, Power BI, Databricks, PySpark, AWS', '                 location: Pune, India'],
     about: show('about', ['Data Analyst at Autoline Industries Ltd. B.E. Robotics & Automation Engineering. Interested in turning raw data into reliable pipelines, dashboards and decisions.']),
-    work: show('work', projects.map(p => `${p.id.padEnd(18)} ${p.title}`)),
-    projects: () => [...projects.map(p => `${p.id.padEnd(18)} ${p.title} [${p.category}]`), '', 'open <id> to view a case study'],
+    work: show('work', dataProjects.map(p => `${p.id.padEnd(18)} ${p.title}`)),
+    other: () => { nav('/other-work'); window.scrollTo({ top: 0 }); return [...otherProjects.map(p => `${p.id.padEnd(18)} ${p.title} [${p.category}]`), '', 'Back to the data portfolio: type `home`'] },
+    home: () => { nav('/'); window.scrollTo({ top: 0 }); return ['→ main data portfolio'] },
+    projects: () => { const list = ctx === 'other' ? otherProjects : dataProjects; return [...list.map(p => `${p.id.padEnd(18)} ${p.title} [${p.category}]`), '', ctx === 'other' ? 'open <id> for a case study · `home` returns to the data portfolio' : 'open <id> for a case study · `other` shows full stack, IoT and hardware work'] },
     skills: show('skills', Object.entries(skills).map(([g, i]) => `${g.padEnd(17)} ${i.join(', ')}`)),
     experience: show('experience', experience.map(e => `${(e.dates || 'dates n/a').padEnd(22)} ${e.role} @ ${e.company}`)),
     certifications: show('certifications', certifications.map(c => `${c.date.padEnd(11)} ${c.title}`)),
@@ -41,7 +44,7 @@ export default function Terminal() {
     resume: () => { window.open(siteConfig.resume); return ['opening resume…'] },
     github: () => { window.open(siteConfig.social.github); return ['opening GitHub…'] },
     linkedin: () => { window.open(siteConfig.social.linkedin); return ['opening LinkedIn…'] },
-    ask: async a => { if (!a.length) return ['usage: ask <question>']; return (await askAssistant([{ role: 'user', text: a.join(' ') }])).split('\n') },
+    ask: async a => { if (!a.length) return ['usage: ask <question>']; const r = await askAssistant([{ role: 'user', text: a.join(' ') }], ctx); return [...r.text.split('\n'), ...(r.action ? [`→ ${r.action.label}: type \`${r.action.to === '/' ? 'home' : 'other'}\``] : [])] },
     max: () => { setBig(true) },
     min: () => { setBig(false) },
     clear: () => { setLines([]) },

@@ -2,25 +2,25 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, FileText, Github, Linkedin, Mail } from "lucide-react";
 import { siteConfig } from "../data/siteConfig";
-// import Portrait from "./Portrait";
+import { FillModel } from "./FillModel";
 
 const HeroWorld = lazy(() => import("./HeroWorld"));
 
-const roles = ["Data Analyst", "Data Engineer", "Data & ML Enthusiast"];
+const roles = ["Data Analytics", "Data Engineering", "Data Science"];
 
 const stack = [
   "Python",
   "SQL",
   "Power BI",
-  "AWS S3",
   "Databricks",
+  "AWS",
+  "ETL",
+  "Data Pipelines",
   "PySpark",
-  "Medallion Architecture",
-  "ETL / ELT",
+  "Tableau",
   "Excel",
   "EDA",
   "Machine Learning",
-  "Gemini API",
 ];
 
 const rise = (d: number) => ({
@@ -50,10 +50,10 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-[100svh] flex-col overflow-hidden"
     >
-      {/* Background */}
+      {/* ================= BACKGROUND ================= */}
       <div className="grid-bg absolute inset-0" aria-hidden />
 
-      {/* ================= HERO TEXT AREA ================= */}
+      {/* ================= HERO CONTENT ================= */}
       <div
         className="
           relative
@@ -74,11 +74,24 @@ export default function Hero() {
           lg:gap-y-6
         "
       >
-        {/* ================= LEFT SIDE ================= */}
-        <div className="text-center lg:col-start-1 lg:row-start-1 lg:text-left">
+        {/* ================= LEFT: NAME ================= */}
+        <div className="text-center lg:col-start-1 lg:row-start-1 lg:self-center lg:text-left">
           <motion.p
             {...rise(0)}
-            className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/15 bg-card px-3 py-1 text-xs text-fg2"
+            className="
+              inline-flex
+              max-w-full
+              items-center
+              gap-2
+              rounded-full
+              border
+              border-white/15
+              bg-card
+              px-3
+              py-1
+              text-xs
+              text-fg2
+            "
           >
             <span className="h-2 w-2 shrink-0 animate-pulse rounded-full bg-accent" />
 
@@ -113,7 +126,7 @@ export default function Hero() {
           </motion.h1>
         </div>
 
-        {/* ================= RIGHT SIDE — ROLES ================= */}
+        {/* ================= RIGHT: ROLES ================= */}
         <motion.div
           {...rise(0.4)}
           className="
@@ -126,7 +139,16 @@ export default function Hero() {
           "
           aria-label="Roles"
         >
-          <p className="text-xl text-cyan sm:text-3xl">A</p>
+          <p
+            className="
+              text-xl
+              text-cyan
+              sm:text-3xl
+              lg:mb-1
+            "
+          >
+            Focused on
+          </p>
 
           {roles.map((r, k) => (
             <p
@@ -137,7 +159,7 @@ export default function Hero() {
                 via-cyan
                 to-pink
                 bg-clip-text
-                text-[clamp(2.4rem,13vw,4.25rem)]
+                text-[clamp(2rem,10vw,3.5rem)]
                 font-extrabold
                 uppercase
                 leading-[0.95]
@@ -145,8 +167,9 @@ export default function Hero() {
                 text-transparent
                 transition-all
                 duration-500
-                sm:text-7xl
-                lg:text-[clamp(2.6rem,4.6vw,5.5rem)]
+                sm:text-6xl
+                lg:whitespace-nowrap
+                lg:text-[clamp(2rem,3.6vw,4.2rem)]
                 ${k === i ? "opacity-100" : "opacity-25"}
               `}
             >
@@ -155,16 +178,25 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* ================= LEFT BOTTOM CONTENT ================= */}
+        {/* ================= LEFT: DESCRIPTION + BUTTONS ================= */}
         <div className="text-center lg:col-start-1 lg:row-start-2 lg:self-start lg:text-left">
           <motion.p
             {...rise(0.35)}
-            className="mx-auto max-w-[46ch] text-fg2 lg:mx-0"
+            className="
+              mx-auto
+              max-w-[46ch]
+              text-sm
+              leading-relaxed
+              text-fg2
+              sm:text-base
+              lg:mx-0
+            "
           >
-            I build data pipelines, analytics solutions and dashboards that turn
-            raw data into meaningful insights.
+            I turn raw data into reliable pipelines, insights and data-driven
+            solutions with Python, SQL, Power BI, Databricks and AWS.
           </motion.p>
 
+          {/* Primary Actions */}
           <motion.div
             {...rise(0.5)}
             className="
@@ -180,13 +212,59 @@ export default function Hero() {
             {/* Explore Work */}
             <a
               href="#work"
-              className="btn-shine inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-accent to-cyan px-5 py-3 font-semibold text-bg"
+              className="
+                btn-shine
+                inline-flex
+                items-center
+                gap-2
+                rounded-lg
+                bg-gradient-to-r
+                from-accent
+                to-cyan
+                px-5
+                py-3
+                font-semibold
+                text-bg
+              "
             >
               Explore my work
               <ArrowDown size={16} />
             </a>
 
-            {/* GitHub */}
+            {/* Resume */}
+            <a
+              href={siteConfig.resume}
+              className="
+                btn-shine
+                inline-flex
+                items-center
+                gap-2
+                rounded-lg
+                border
+                border-white/20
+                px-4
+                py-3
+                font-semibold
+                hover:border-accent
+              "
+            >
+              <FileText size={16} />
+              Resume
+            </a>
+          </motion.div>
+
+          {/* Social Icons */}
+          <motion.div
+            {...rise(0.6)}
+            className="
+              mt-4
+              flex
+              items-center
+              justify-center
+              gap-3
+              lg:justify-start
+            "
+          >
             <a
               href={siteConfig.social.github}
               target="_blank"
@@ -197,7 +275,6 @@ export default function Hero() {
               <Github size={18} />
             </a>
 
-            {/* LinkedIn */}
             <a
               href={siteConfig.social.linkedin}
               target="_blank"
@@ -208,7 +285,6 @@ export default function Hero() {
               <Linkedin size={18} />
             </a>
 
-            {/* Email */}
             <a
               href={`mailto:${siteConfig.email}`}
               aria-label="Email"
@@ -220,7 +296,21 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ================= 3D HERO WORLD ================= */}
+      {/* ================= 3D SENSOR MODEL ================= */}
+      <FillModel
+        kind="sensor"
+        label="3D live sensor telemetry waveform"
+        className="absolute bottom-24 left-6 z-0 hidden h-44 w-56 2xl:block"
+      />
+
+      {/* ================= 3D NEURAL MODEL ================= */}
+      <FillModel
+        kind="neural"
+        label="3D neural network"
+        className="absolute bottom-24 right-6 z-0 hidden h-44 w-56 2xl:block"
+      />
+
+      {/* ================= MAIN 3D HERO WORLD ================= */}
       <div className="pointer-events-none relative z-0 -mt-16 min-h-[230px] w-full flex-1 sm:-mt-24 sm:min-h-[290px] lg:-mt-28 lg:min-h-[300px]">
         <Suspense fallback={null}>
           <div className="absolute inset-0">
@@ -229,17 +319,42 @@ export default function Hero() {
         </Suspense>
       </div>
 
-      {/* ================= RESUME ================= */}
+      {/* ================= RESUME LINK ================= */}
       <a
         href={siteConfig.resume}
-        className="u-link absolute bottom-20 right-8 z-10 hidden items-center gap-2 text-sm tracking-[0.3em] text-muted hover:text-fg xl:flex"
+        className="
+          u-link
+          absolute
+          bottom-20
+          right-8
+          z-10
+          hidden
+          items-center
+          gap-2
+          text-sm
+          tracking-[0.3em]
+          text-muted
+          hover:text-fg
+          xl:flex
+        "
       >
-        RESUME <FileText size={16} />
+        RESUME
+        <FileText size={16} />
       </a>
 
       {/* ================= SKILLS MARQUEE ================= */}
       <div
-        className="relative z-10 mt-auto overflow-hidden border-y border-white/10 bg-bg/40 py-3 backdrop-blur"
+        className="
+          relative
+          z-10
+          mt-auto
+          overflow-hidden
+          border-y
+          border-white/10
+          bg-bg/40
+          py-3
+          backdrop-blur
+        "
         aria-hidden
       >
         <div className="marquee font-mono text-sm text-fg2">
