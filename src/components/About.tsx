@@ -14,7 +14,7 @@ const facts = [
 ] as const;
 
 const journey = [
-  "Robotics & Automation",
+  "Raw Data",
   "Software",
   "Data Analytics",
   "Data Engineering",
