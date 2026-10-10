@@ -39,23 +39,70 @@ export const experience: Role[] = [
       "AI Tools & Prompt Engineering",
     ],
   },
+
   {
     track: "data",
     company: "Lumax Cornaglia Auto Technologies Pvt Ltd",
-    role: "Project Management Internship",
+    role: "Project Management Intern",
     dates: "Jan 2026 – Feb 2026",
     type: "Internship",
-    points: [],
-    tech: [],
+    points: [
+      "Supported project planning, milestone tracking, and execution monitoring across manufacturing workflows to help maintain project timelines and completion targets.",
+
+      "Coordinated with two on-site clients to communicate project progress, provide completion updates, discuss timelines, and support alignment on project deliverables.",
+
+      "Prepared project status reports, maintained project documentation, and tracked pending activities to improve progress visibility and support timely follow-ups.",
+
+      "Assisted senior management with project coordination, progress reviews, task prioritization, and deadline monitoring to support smooth project execution.",
+
+      "Gained practical exposure to auditing activities, documentation checks, and process compliance within a manufacturing environment.",
+
+      "Strengthened stakeholder management, professional communication, time management, and problem-solving skills while coordinating project activities and meeting deadlines.",
+    ],
+    tech: [
+      "Project Coordination",
+      "Project Tracking",
+      "MS Excel",
+      "MS Office",
+      "Project Reporting",
+      "Audit Documentation",
+      "Client Communication",
+      "Time Management",
+    ],
   },
+
   {
     track: "other",
     company: "Drushya Digital India Pvt Ltd",
-    role: "Full Stack Development Internship",
+    role: "Full Stack Developer Intern",
     dates: "Sept 2025 – Nov 2025",
     type: "Internship",
-    points: [],
-    tech: [],
+    points: [
+      "Developed and maintained web application components using React.js, JavaScript, and modern frontend technologies, focusing on responsive interfaces and usability.",
+
+      "Built and integrated RESTful APIs using Node.js and Express.js to connect frontend components with backend services and application data.",
+
+      "Worked with MongoDB and SQL databases to manage application data and support backend functionality.",
+
+      "Implemented and tested application features, debugged issues, and improved functionality through iterative development and testing.",
+
+      "Used Git and GitHub for version control, source code management, and tracking development changes throughout the project lifecycle.",
+
+      "Collaborated on development tasks, incorporated feedback, and managed assigned deliverables to support timely project progress.",
+    ],
+    tech: [
+      "JavaScript",
+      "Python",
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "SQL",
+      "REST APIs",
+      "Git",
+      "GitHub",
+      "Tailwind CSS",
+    ],
   },
 ];
 
