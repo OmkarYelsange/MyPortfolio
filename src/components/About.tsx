@@ -76,27 +76,36 @@ export default function About() {
           </h2>
 
           <p>
-            I'm Omkar Yelsange, a Data Analyst at Autoline Industries Ltd in
-            Pune, focused on turning raw data into meaningful insights that
-            support better business decisions. I work with cross-functional
-            operational data, using Python, SQL, and Power BI to analyze
-            performance, improve data quality, and build actionable reports and
-            dashboards.
+            I'm <strong>Omkar Yelsange</strong>, a{" "}
+            <strong>Data Analyst at Autoline Industries Ltd</strong> in Pune. I
+            turn raw data into meaningful insights that support better business
+            decisions. Using <strong>Python, SQL, and Power BI</strong>, I
+            analyze operational data, improve data quality, and build
+            interactive dashboards and reports.
           </p>
           <p>
-            My experience includes data cleaning, handling missing values and
-            outliers, analyzing production trends, and tracking operational
-            KPIs. I'm also strengthening my data engineering skills with
-            Databricks, PySpark, AWS, and the Medallion architecture, with a
-            focus on building scalable and reliable data workflows.
+            My core strengths include{" "}
+            <strong>
+              data cleaning, exploratory data analysis, KPI tracking, trend
+              analysis, and problem-solving
+            </strong>
+            . I'm expanding my expertise in <strong>Data Engineering</strong>
+            through{" "}
+            <strong>
+              Databricks, PySpark, AWS, and Medallion Architecture
+            </strong>
+            , with a focus on reliable data processing and scalable data
+            workflows.
           </p>
           <p>
-            I'm interested in opportunities across Data Analytics, Data
-            Engineering, Business Intelligence, and Python/SQL development,
-            where I can solve practical problems, write efficient code, and
-            build data-driven solutions that deliver measurable value. My
-            additional software development projects are available on the
-            separate{" "}
+            I'm interested in{" "}
+            <strong>
+              Data Analytics, Data Engineering, Business Intelligence, and
+              Python/SQL development
+            </strong>
+            . I enjoy solving practical problems, learning new technologies, and
+            building solutions that deliver business value. Explore my
+            additional software development projects on the{" "}
             <Link to="/other-work" className="u-link text-accent">
               Other Work
             </Link>{" "}
