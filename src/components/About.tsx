@@ -71,32 +71,32 @@ export default function About() {
         {/* RIGHT — ABOUT CONTENT */}
         <div className="space-y-4 text-fg2 lg:order-2">
           <p className="font-mono text-xs text-cyan">ABOUT ME</p>
-
           <h2 id="about-h" className="text-2xl font-bold sm:text-3xl">
             From Raw Data to Actionable Insights
           </h2>
 
           <p>
-            I'm Omkar Yelsange, a Data Analyst at Autoline Industries Ltd. based
-            in Pune, with a B.E. in Robotics &amp; Automation Engineering. My
-            multidisciplinary engineering background helped me develop strong
-            problem-solving and technical foundations, while my current focus is
-            on transforming data into insights, building reliable data
-            pipelines, and developing data-driven solutions.
+            I'm Omkar Yelsange, a Data Analyst at Autoline Industries Ltd in
+            Pune, focused on turning raw data into meaningful insights that
+            support better business decisions. I work with cross-functional
+            operational data, using Python, SQL, and Power BI to analyze
+            performance, improve data quality, and build actionable reports and
+            dashboards.
           </p>
-
           <p>
-            At Autoline I work with live sensor data collected from physical
-            industrial grinding machines. Alongside the job I build data
-            engineering skills with Databricks, PySpark, AWS and the Medallion
-            architecture, and I create analyses and dashboards with SQL, Python
-            and Power BI.
+            My experience includes data cleaning, handling missing values and
+            outliers, analyzing production trends, and tracking operational
+            KPIs. I'm also strengthening my data engineering skills with
+            Databricks, PySpark, AWS, and the Medallion architecture, with a
+            focus on building scalable and reliable data workflows.
           </p>
-
           <p>
-            I'm looking for roles in data analytics, data engineering, business
-            intelligence and data science. My full stack, robotics and IoT work
-            is on a separate{" "}
+            I'm interested in opportunities across Data Analytics, Data
+            Engineering, Business Intelligence, and Python/SQL development,
+            where I can solve practical problems, write efficient code, and
+            build data-driven solutions that deliver measurable value. My
+            additional software development projects are available on the
+            separate{" "}
             <Link to="/other-work" className="u-link text-accent">
               Other Work
             </Link>{" "}
@@ -122,7 +122,6 @@ export default function About() {
               </li>
             ))}
           </ol>
-
           <ul data-stagger className="stagger grid gap-3">
             {facts.map(([Icon, l, v]) => (
               <li
