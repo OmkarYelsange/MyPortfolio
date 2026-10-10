@@ -1,217 +1,918 @@
 // Every project below comes from Omkar's GitHub (github.com/OmkarYelsange). Text is based on each repository's README;
 // nothing is invented. Add real numbers/findings in `result` when you have them.
-export type Category = 'Data Analytics' | 'Data Engineering' | 'Software / Web Development' | 'Hardware'
+export type Category =
+  | "Data Analytics"
+  | "Data Engineering"
+  | "Software / Web Development"
+  | "Hardware";
 export interface Project {
-  id: string; title: string; category: Category; shortDescription: string; technologies: string[]
-  metrics: { label: string; value: string }[]; github: string; dashboard?: string; featured: boolean
-  cover: string; coverIsReal: boolean; gallery: string[]; private?: boolean; extraLinks?: { label: string; url: string }[]
-  problem: string; approach: string[]; solution: string; result: string[]; benefits: string[]; different: string[]
+  id: string;
+  title: string;
+  category: Category;
+  shortDescription: string;
+  technologies: string[];
+  metrics: { label: string; value: string }[];
+  github: string;
+  dashboard?: string;
+  featured: boolean;
+  cover: string;
+  coverIsReal: boolean;
+  gallery: string[];
+  private?: boolean;
+  extraLinks?: { label: string; url: string }[];
+  problem: string;
+  approach: string[];
+  solution: string;
+  result: string[];
+  benefits: string[];
+  different: string[];
 }
-export const categories: Category[] = ['Data Analytics', 'Data Engineering', 'Software / Web Development', 'Hardware']
-const GH = 'https://github.com/OmkarYelsange'
-const DA = `${GH}/Data-Analytics-Projects`
-const real = (id: string, n: number) => ({ cover: `/projects/${id}/cover.webp`, coverIsReal: true, gallery: Array.from({ length: n }, (_, i) => `/projects/${id}/${i + 1}.webp`) })
-const art = (id: string) => ({ cover: `/projects/${id}/cover.svg`, coverIsReal: false, gallery: [] as string[] })
+export const categories: Category[] = [
+  "Data Analytics",
+  "Data Engineering",
+  "Software / Web Development",
+  "Hardware",
+];
+const GH = "https://github.com/OmkarYelsange";
+const DA = `${GH}/Data-Analytics-Projects`;
+const real = (id: string, n: number) => ({
+  cover: `/projects/${id}/cover.webp`,
+  coverIsReal: true,
+  gallery: Array.from({ length: n }, (_, i) => `/projects/${id}/${i + 1}.webp`),
+});
+const art = (id: string) => ({
+  cover: `/projects/${id}/cover.svg`,
+  coverIsReal: false,
+  gallery: [] as string[],
+});
 
 const base: Project[] = [
-  { id: 'goodcabs', title: 'GoodCabs Analytics Platform', category: 'Data Engineering', featured: true, github: `${GH}/Databricks-Projects`, ...real('goodcabs', 3),
-    shortDescription: 'End-to-end Databricks pipeline that turns raw transportation data into analytics-ready Gold datasets using the Medallion architecture.',
-    technologies: ['AWS S3', 'Databricks', 'PySpark', 'SQL', 'Delta Lake', 'Power BI'], metrics: [{ label: 'Layers', value: 'Bronze · Silver · Gold' }],
-    problem: 'Transportation trip and city data arrives as raw files. Before a business can ask questions about trips and cities, the data has to be ingested, cleaned and modelled.',
-    approach: ['Brought raw city and trip data in from cloud storage (AWS S3) into Databricks', 'Organised the data in the Medallion architecture: Bronze, Silver and Gold', 'Cleaned and standardised records with PySpark in the Silver layer', 'Built business-ready Gold datasets for transportation and trip analysis', 'Added a project-setup notebook so the workflow can be re-run'],
-    solution: 'A Databricks pipeline, Raw data → Bronze → Silver → Gold, written in PySpark and SQL, with one set of notebooks per layer and an architecture diagram in the repository.',
-    result: ['Working Bronze, Silver and Gold layers for city and trip data', 'Analytics-ready Gold tables that can be queried with SQL and connected to Power BI', 'Documented architecture and repeatable project setup'],
-    benefits: ['Each layer has one job, so data problems are easy to trace', 'Analysts query clean Gold tables instead of raw files', 'The same pattern can be reused for other datasets'],
-    different: ['Keeps raw data untouched in Bronze, so cleaning logic can be changed and re-run, unlike a single script that overwrites the source', 'Uses distributed PySpark on Databricks instead of single-machine scripts, so the same code scales with data size', 'Separates ingestion, cleaning and modelling into layers instead of one monolithic notebook'] },
-  { id: 'aws-healthcare', title: 'AWS Healthcare Data Pipeline', category: 'Data Analytics', featured: true, github: `${GH}/AWS-DA`, ...real('aws-healthcare', 3),
-    shortDescription: 'Serverless AWS pipeline: S3 data lake, Glue DataBrew profiling and cleaning, Glue ETL, Athena SQL and QuickSight dashboards for patient data.',
-    technologies: ['Amazon S3', 'AWS Glue', 'Glue DataBrew', 'Athena', 'QuickSight', 'SQL'], metrics: [{ label: 'Pipeline steps', value: '10' }, { label: 'Source files', value: '2 CSVs' }],
-    problem: 'Raw healthcare (patient) CSV files are not ready to query or visualise: they need profiling, cleaning, cataloguing and a way to run SQL over them.',
-    approach: ['Stored the raw patient CSV files in an Amazon S3 data lake', 'Profiled and cleaned the data with AWS Glue DataBrew recipes', 'Catalogued the schema with a Glue Crawler and the Glue Data Catalog', 'Transformed the data with an AWS Glue ETL job and wrote processed data back to S3', 'Queried the results with Amazon Athena and built a QuickSight dashboard'],
-    solution: 'A managed cloud workflow: Raw data → S3 → DataBrew → Glue Crawler/Catalog → Glue ETL → processed S3 → Athena → QuickSight.',
-    result: ['Raw CSV files turned into clean, structured, queryable datasets', 'SQL access to processed data through Athena', 'Visualisation-ready data for a QuickSight dashboard'],
-    benefits: ['No servers to provision or maintain', 'Data stays in S3 and is queried in place', 'Every stage is a separate, reusable AWS service'],
-    different: ['Serverless services instead of building and running your own database or warehouse', 'Visual profiling and recipes in DataBrew instead of hand-written cleaning code', 'Athena queries data where it sits in S3 instead of loading it into a database first'] },
-  { id: 'machine-monitoring', title: 'Machine Monitoring Analytics (M2 & M35)', category: 'Data Analytics', featured: true, github: `${DA}/tree/main/1.%20Machine%20Monitoring%20Project`, ...real('machine-monitoring', 3),
-    shortDescription: 'Manufacturing analytics on raw machine-monitoring data: SQL analysis and KPI dashboards in Power BI and Excel for the M2 and M35 machines.',
-    technologies: ['SQL', 'Power BI', 'Excel', 'Data Cleaning', 'KPI Reporting'], metrics: [{ label: 'Machines', value: 'M2 · M35' }],
-    problem: 'Raw machine-monitoring data from manufacturing is hard to read directly. Teams need KPIs that show how each machine is performing and where performance varies.',
-    approach: ['Collected and cleaned raw machine-monitoring data for the M2 and M35 datasets', 'Ran SQL analysis directly on the raw data', 'Defined and calculated operational KPIs', 'Built dashboards in Power BI and Excel (plus a custom dashboard view) for the M2 machine'],
-    solution: 'A pipeline of Raw manufacturing data → cleaning → SQL analysis → KPI calculation → Power BI dashboard → operational insights.',
-    result: ['Completed M2 and M35 dashboard work with SQL analysis on the raw data', 'The same dataset presented as Power BI, Excel and custom dashboards', 'Machine-health KPIs visible on a single screen'],
-    benefits: ['Turns manufacturing data into actionable insight', 'Makes trends and performance variations visible', 'KPIs can be tracked over time'],
-    different: ['Starts with SQL on the raw data instead of eyeballing a spreadsheet', 'Shows the same data in three dashboard forms instead of one fixed view', 'Built from real machine data rather than a sample dataset'] },
-  { id: 'airbnb', title: 'Airbnb NYC: Python & EDA', category: 'Data Analytics', featured: true, github: `${DA}/tree/main/2.%20AirBnB%20Python%20%26%20EDA%20Project`, ...real('airbnb', 4),
-    shortDescription: 'Exploratory data analysis of 20,770 Airbnb listings across 22 attributes: pricing, room types, neighbourhoods, reviews and correlations.',
-    technologies: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Jupyter'], metrics: [{ label: 'Listings', value: '20,770' }, { label: 'Attributes', value: '22' }],
-    problem: 'Which neighbourhoods, room types and listing features drive Airbnb prices in New York, and how do reviews, beds and availability relate to each other?',
-    approach: ['Loaded and explored the dataset: structure, data types, missing values and summary statistics', 'Checked data quality, distributions and outliers', 'Ran statistical and correlation analysis', 'Visualised prices, room types, geography, reviews and correlations (heatmap, pair plots)'],
-    solution: 'A Jupyter notebook that answers a list of business questions with Pandas, NumPy, Matplotlib and Seaborn, from data loading to insights.',
-    result: ['Manhattan showed higher average prices than the other neighbourhood groups', 'Entire homes/apartments generally cost more than private or shared rooms', 'Beds and price have a moderate positive relationship (correlation about 0.42)', 'Reviews and reviews per month are strongly related (about 0.63)', 'Listings are concentrated in specific parts of New York City'],
-    benefits: ['Gives hosts and analysts evidence on what drives price', 'Shows which variables matter and which do not (minimum nights is only weakly related to price)', 'Notebook is reproducible with a few commands'],
-    different: ['Starts from clear business questions instead of just printing summary statistics', 'Combines data-quality checks, correlation analysis and geography in one workflow', 'Fully scripted in a notebook rather than manual spreadsheet pivots'] },
-  { id: 'ola', title: 'OLA Ride Analytics', category: 'Data Analytics', featured: true, github: `${DA}/tree/main/3.%20Ola%20Project`, ...art('ola'),
-    shortDescription: 'Analysis of a 100,000-row Ola booking dataset covering bookings, cancellations, customers, vehicles and revenue, with SQL, a Power BI dashboard and a presentation.',
-    technologies: ['SQL', 'Power BI', 'Excel', 'PowerPoint'], metrics: [{ label: 'Booking rows', value: '100,000' }],
-    problem: 'A ride-hailing business needs to understand booking patterns, ride status, cancellations, customer behaviour and vehicle performance from a large booking dataset.',
-    approach: ['Cleaned the 100,000-row booking dataset with SQL', 'Wrote SQL analysis queries for the key business questions', 'Built a Power BI dashboard for the main KPIs', 'Summarised the findings in a PDF report and a slide deck'],
-    solution: 'A complete analytics package: cleaned data, SQL cleaning and analysis scripts, a Power BI dashboard, an analytical report and a presentation.',
-    result: ['Cleaned dataset with documented SQL cleaning and analysis scripts', 'Power BI dashboard (.pbix) for ride KPIs', 'Analytical report (PDF) and presentation (PPTX) with the findings'],
-    benefits: ['Decision-makers get findings in report, slide and dashboard form', 'Cleaning and analysis steps are repeatable SQL scripts', 'Covers bookings, cancellations, customers, vehicles and revenue in one project'],
-    different: ['Cleaning and analysis are written as SQL scripts instead of one-off spreadsheet edits', 'Delivers a dashboard, a report and a presentation instead of a single output', 'Works at 100,000 rows where manual spreadsheet analysis becomes slow'] },
-  { id: 'zepto', title: 'Zepto Inventory Analysis', category: 'Data Analytics', featured: true, github: `${DA}/tree/main/5.%20Zepto%20SQL%20Project`, ...real('zepto', 2),
-    shortDescription: 'SQL-first analysis of a Zepto product and inventory dataset (pricing, discounts, stock availability) with a Power BI inventory dashboard.',
-    technologies: ['SQL', 'Power BI', 'Excel', 'CSV'], metrics: [],
-    problem: 'A quick-commerce business needs to understand product pricing, discounts and stock availability across its inventory.',
-    approach: ['Inspected the raw product dataset (CSV and Excel)', 'Explored and filtered the data with SQL (WHERE, GROUP BY, CASE, subqueries)', 'Aggregated pricing, discount and stock metrics', 'Built a Power BI "Zepto Inventory Analysis" dashboard with KPI cards'],
-    solution: 'A SQL script for data exploration and business analysis, plus a Power BI dashboard that presents inventory KPIs.',
-    result: ['SQL analysis script covering pricing, discount and stock patterns', 'Power BI inventory dashboard with KPI cards and breakdown charts', 'Dataset provided in CSV and Excel form'],
-    benefits: ['Highlights pricing and discount patterns', 'Shows stock availability at a glance', 'SQL logic is reusable on new data'],
-    different: ['SQL-first exploration before building visuals instead of dragging fields straight into a dashboard', 'Uses conditional logic and subqueries for business rules instead of manual filtering', 'Pairs a query script with a dashboard so numbers can be traced back to SQL'] },
-  { id: 'blinkit', title: 'Blinkit Grocery Analytics', category: 'Data Analytics', featured: false, github: `${DA}/tree/main/4.%20Blinkit%20Project`, ...art('blinkit'),
-    shortDescription: 'Grocery retail analytics on Blinkit data: sales, product, outlet and category KPIs using SQL, Excel and Power BI.',
-    technologies: ['SQL', 'Excel', 'Power BI'], metrics: [],
-    problem: 'A grocery retailer needs to see sales performance, product and category mix and outlet performance in one place.',
-    approach: ['Prepared the BlinkIT grocery dataset in Excel', 'Wrote SQL queries for product, outlet and category analysis', 'Defined business KPIs', 'Presented the results as dashboard visuals'],
-    solution: 'A KPI-focused BI project that combines Excel data preparation, SQL analysis and dashboard visualisation.',
-    result: ['SQL analysis resources and documentation for the dataset', 'KPI dashboard visuals for sales, product, outlet and category views'],
-    benefits: ['Shows sales patterns by product, category and outlet', 'Keeps KPIs consistent through shared SQL definitions', 'Easy for non-technical users to read'],
-    different: ['KPIs are defined in SQL first, then visualised, instead of being calculated ad hoc in the dashboard', 'Looks at product, outlet and category together instead of one view', 'Uses three tools (SQL, Excel, Power BI) for the job each does best'] },
-  { id: 'smart-chair-kit', title: 'IoT Smart Chair Kit', category: 'Hardware', featured: false, github: `${GH}/Project-IoT-Smart-Chair-Kit`, ...art('smart-chair-kit'),
-    shortDescription: 'Attachable IoT kit that tracks sitting posture, sitting time and weight distribution, with health alerts and a live Blynk dashboard.',
-    technologies: ['ESP32', 'Arduino Uno', 'Flex & force sensors', 'Load cells', 'Blynk'], metrics: [{ label: 'Team', value: '4' }, { label: 'Recognition', value: '1st Runner-up' }],
-    problem: 'Long hours of sitting and poor posture hurt health, but ordinary chairs give no feedback.',
-    approach: ['Fitted flex and force sensors to detect posture and load cells to measure weight distribution', 'Connected an ESP32 and Arduino Uno with sensors, a buzzer/vibration alert and a temperature sensor', 'Sent live data to a Blynk IoT dashboard on mobile and PC', 'Omkar worked on IoT integration and documentation within a team of four'],
-    solution: 'A compact kit that attaches behind the backrest and under the seat of an existing chair and gives real-time posture, sitting-time and condition feedback.',
-    result: ['1st Runner-up at the Utkarsh National Robotics Competition', 'Participant at the DIPEX 2025 state-level innovation exhibition', 'Showcased at the Roborastra competition'],
-    benefits: ['Prevents prolonged sitting and bad posture through alerts', 'Useful for offices, schools, healthcare and even vehicle seats', 'Live dashboard shows data anywhere'],
-    different: ['Fuses several sensors for more accurate posture and load detection', 'Is a modular kit that attaches to any existing chair, not a special chair', 'Is cloud-connected, with room to add AI posture correction and fatigue detection later'] },
-  { id: 'ai-chatbot', title: 'AI ChatBot', category: 'Software / Web Development', featured: false, github: `${GH}/AI-ChatBot`, ...art('ai-chatbot'),
-    shortDescription: 'Conversational AI app with a React (Vite) frontend and a Python Flask backend powered by the Google Gemini Flash 2.0 API.',
-    technologies: ['React', 'Vite', 'Tailwind CSS', 'Python', 'Flask', 'Gemini API'], metrics: [],
-    problem: 'Build a chatbot that talks to a large language model without exposing the API key in the browser.',
-    approach: ['Built a React + Vite + Tailwind frontend for the chat interface', 'Created a Flask REST API that calls the Gemini Flash 2.0 model', 'Kept the API key in a backend .env file', 'Structured frontend and backend as separate, deployable modules'],
-    solution: 'A modular chatbot: the React frontend talks to the Flask backend, which calls the Gemini API and returns replies.',
-    result: ['Working conversational AI app with a frontend and backend', 'Local setup documented in the repository'],
-    benefits: ['API key stays on the server', 'Frontend and backend can be developed and deployed separately', 'Easy to extend with new features'],
-    different: ['Keeps the API key on the backend instead of in client-side code', 'Separates UI from API logic so either side can change independently', 'Uses a lightweight Flask service instead of a heavy framework'] },
-  { id: 'data-analyst-lab', title: 'Data Analyst Practice Lab', category: 'Data Analytics', featured: false, github: `${GH}/Data-Analyst`, ...real('data-analyst-lab', 2),
-    shortDescription: 'Learning and project repository covering Excel, MySQL, Power BI, Python and Tableau, including a Bike Sales dashboard and an Airbnb Tableau dashboard.',
-    technologies: ['Excel', 'MySQL', 'Power BI', 'Python', 'Tableau'], metrics: [{ label: 'Tools practised', value: '5' }],
-    problem: 'Build the practical skills needed for a Data Analyst / Business Analyst role: SQL, Python, Excel, Power BI, Tableau and statistics.',
-    approach: ['Followed a loop of learn the concept, practise, build, analyse and document', 'Practised SQL and Python exercises', 'Built dashboards in Excel (Bike Sales), Power BI and Tableau (Airbnb)'],
-    solution: 'A growing repository of exercises, queries, analyses and dashboards organised by tool.',
-    result: ['Dashboards built in Excel, Power BI and Tableau', 'SQL and Python practice collections', 'A documented learning progression'],
-    benefits: ['Shows breadth across the main analyst tools', 'Documents the learning process', 'Continuously updated'],
-    different: ['Practises the same kind of analysis in several tools instead of mastering only one', 'Documents each step instead of only showing final dashboards', 'Mixes exercises with project-style builds'] },
-  { id: 'databricks-lab', title: 'Databricks Lakehouse Projects', category: 'Data Engineering', featured: false, github: `${GH}/Databricks`, ...art('databricks-lab'),
-    shortDescription: 'Hands-on Data Engineering and Analytics projects built on Databricks, Apache Spark, PySpark, Spark SQL and Delta Lake.',
-    technologies: ['Databricks', 'Apache Spark', 'PySpark', 'Spark SQL', 'Delta Lake'], metrics: [],
-    problem: 'Learning data engineering well means practising the whole lakehouse workflow (ingestion, transformation, data quality and modelling), not only reading about it.',
-    approach: ['Built projects around ETL / ELT pipelines on Databricks', 'Applied the Medallion architecture: Bronze, Silver and Gold layers', 'Practised transformation, cleaning, data quality and data modelling', 'Used Delta Lake and Spark optimisation concepts'],
-    solution: 'A growing repository of practical Databricks projects covering data engineering, analytics and lakehouse use cases.',
-    result: ['Hands-on projects across Databricks, Spark and Delta Lake', 'A reusable Source → Bronze → Silver → Gold → Analytics architecture pattern'],
-    benefits: ['Builds practical, industry-style data engineering skills', 'Each project reuses a proven layered architecture', 'Documents the learning journey in one place'],
-    different: ['Hands-on projects instead of theory or certificates alone', 'Covers the whole lifecycle (ingest, model, serve) instead of isolated Spark exercises', 'Uses Delta Lake and the Medallion pattern from the start instead of flat, unmanaged tables'] },
-  { id: 'sams-dashboard', title: 'SAMS Dashboard', category: 'Software / Web Development', featured: true, github: `${GH}/SAMS-Dashboard`, ...art('sams-dashboard'),
-    shortDescription: 'Responsive web dashboard for SAMS: real-time monitoring, performance metrics and analytics of grinding-machine sensor data, with secure authentication.',
-    technologies: ['React', 'Vite', 'Node.js', 'Express', 'MongoDB'], metrics: [],
-    problem: 'Sensor data from grinding machines is only useful if operators can see it clearly and in real time.',
-    approach: ['Built a React + Vite frontend for real-time monitoring and analytics screens', 'Created a Node.js / Express backend with a database', 'Added secure authentication', 'Made the interface responsive for desktop and mobile'],
-    solution: 'SAMS-Dashboard: a web application that visualises machine sensor data and key performance metrics.',
-    result: ['A working web dashboard for real-time monitoring and analytics', 'The software half of the SAMS hardware + software system'],
-    benefits: ['One place to see machine condition', 'Works on desktop and mobile', 'Access is protected by authentication'],
-    different: ['Web-based, so no special software is needed to view machine data', 'Built for a system with real physical sensors, not a demo with fake data', 'Separates frontend, API and database so each can change independently'] },
-  { id: 'deepseek-clone', title: 'DeepSeek Clone', category: 'Software / Web Development', featured: false, github: `${GH}/DeepSeek-Clone`, ...art('deepseek-clone'),
-    shortDescription: 'Full-stack clone of the DeepSeek AI chat interface built with Next.js, with sign-in, a database and well-formatted AI replies.',
-    technologies: ['Next.js', 'React', 'Clerk', 'MongoDB', 'Markdown'], metrics: [],
-    problem: 'Understand how a modern AI chat product is built end to end: interface, authentication, storage and model calls.',
-    approach: ['Built the chat interface with Next.js and React', 'Added user sign-in with Clerk', 'Stored data with MongoDB (Mongoose)', 'Rendered answers as formatted Markdown with code highlighting (react-markdown, Prism)', 'Deployed on Vercel (live demo linked in the README)'],
-    solution: 'A responsive DeepSeek-style chat application with sign-in, saved data and cleanly formatted answers.',
-    result: ['Working AI chat clone with authentication and a database', 'Live demo referenced in the repository'],
-    benefits: ['Shows full-stack skills with a modern framework', 'Readable answers with highlighted code', 'Easy to extend with other models'],
-    different: ['A full-stack Next.js app instead of a static UI mock-up', 'Real authentication and storage instead of hard-coded data', 'Formats code and Markdown in replies instead of plain text'] },
-  { id: 'youtube-downloader', title: 'YouTube Video & Audio Downloader', category: 'Software / Web Development', featured: false, github: `${GH}/YouTube-Video-Audio-Downloader`, ...real('youtube-downloader', 4),
-    shortDescription: 'Flask web app where signed-in users download YouTube videos as MP4 (up to 720p) or audio as 192 kbps MP3, with a personal download history.',
-    technologies: ['Python', 'Flask', 'SQLite', 'yt-dlp', 'ffmpeg', 'Gunicorn'], metrics: [],
-    problem: 'Saving a video or only its audio normally means anonymous third-party sites with no history or clean-up. This project builds a private, account-based alternative.',
-    approach: ['Built a Flask backend with Flask-Login and Bcrypt authentication', 'Used yt-dlp and ffmpeg to fetch and convert media (MP4 up to 720p, MP3 192 kbps)', 'Stored users and download history in SQLite through SQLAlchemy', 'Built a dashboard that lists completed downloads and clears failed ones automatically', 'Prepared production serving with Gunicorn'],
-    solution: 'A secure web app with registration, login, a download dashboard and a per-user history of completed downloads.',
-    result: ['Working app with landing page, registration, login, dashboard and history', 'Screenshots of the interface included in the repository'],
-    benefits: ['Personal, private download history', 'Failed attempts and temporary files are cleaned up automatically', 'Choice of video (MP4) or audio (MP3)'],
-    different: ['Requires login, so history belongs to each user instead of being anonymous', 'Cleans up failed downloads and temp files automatically', 'Merges best video with best audio using ffmpeg instead of settling for single-stream quality'] },
-  { id: 'chat-app', title: 'Real-Time Chat App', category: 'Software / Web Development', featured: false, github: `${GH}/Chat-App`, ...real('chat-app', 3),
-    shortDescription: 'Real-time chat application with registration, login, an active-users list and instant messaging.',
-    technologies: ['React', 'Vite', 'Firebase', 'Zustand'], metrics: [],
-    problem: 'Build a lightweight chat that demonstrates real-time communication together with user authentication.',
-    approach: ['Created registration and login flows', 'Built the main chat window with real-time messaging between users', 'Added an active-users list so people can see who is online', 'Managed state with Zustand and used Firebase for backend services', 'Added an emoji picker and toast notifications'],
-    solution: 'A responsive full-stack chat application where users register, sign in and talk instantly.',
-    result: ['Working real-time chat with authentication', 'Screenshots of the login, add-user and chat views in the repository'],
-    benefits: ['Instant messaging between users', 'See who is online at a glance', 'Lightweight setup with minimal dependencies'],
-    different: ['Uses managed Firebase services instead of running separate auth and database servers', 'Light state management with Zustand instead of heavy boilerplate', 'Includes presence (active users) instead of only sending messages'] },
-  { id: 'ecommerce', title: 'React E-Commerce Store', category: 'Software / Web Development', featured: false, github: `${GH}/React-Project-E-Commerce-Website`, ...art('ecommerce'),
-    shortDescription: 'Responsive e-commerce storefront with product browsing, product details, a persistent cart and user sign-in.',
-    technologies: ['React', 'Vite', 'Redux Toolkit', 'React Router', 'Clerk'], metrics: [],
-    problem: 'Practise building the core flows of an online shop: browsing products, managing a cart and signing in.',
-    approach: ['Built category browsing and product detail pages', 'Implemented add / remove / update cart actions with Redux Toolkit', 'Kept the cart persistent with localStorage', 'Added login and signup with Clerk', 'Used React Router and designed for all screen sizes'],
-    solution: 'A modern, responsive React + Vite storefront with a smooth cart experience.',
-    result: ['Working e-commerce front end with products, cart and authentication', 'Live demo referenced in the repository'],
-    benefits: ['Covers the main shopping flows end to end', 'Cart survives page refreshes', 'Works on phones, tablets and desktops'],
-    different: ['Single-page React app, so navigation feels instant instead of reloading pages', 'Managed authentication instead of building login from scratch', 'Persistent cart instead of losing items on refresh'] },
-  { id: 'airbnb-clone', title: 'AirBnB Clone', category: 'Software / Web Development', featured: false, github: `${GH}/AirBnB-Clone`, ...art('airbnb-clone'),
-    shortDescription: 'Airbnb-inspired web app to browse accommodations and manage property listings, built with Node.js and Express.',
-    technologies: ['Node.js', 'Express', 'EJS', 'MVC'], metrics: [],
-    problem: 'Learn full-stack development by recreating the core idea of Airbnb: exploring stays and managing listings.',
-    approach: ['Structured the app in an MVC pattern (controllers, models, data)', 'Rendered property pages with EJS templates on an Express server', 'Built browsing of property listings and listing management', 'Used property imagery to recreate the Airbnb look and feel'],
-    solution: 'A server-rendered web application where users browse accommodation and manage listings.',
-    result: ['Working Airbnb-style listing app', 'Clear separation of controllers, models and data'],
-    benefits: ['Teaches the full request-to-page flow', 'Organised code that is easy to extend', 'Demonstrates server-side rendering'],
-    different: ['Server-rendered pages with EJS instead of a client-only app', 'MVC structure instead of everything in one file', 'Built from scratch with Express instead of a site builder'] },
-  { id: 'voting-system', title: 'Voting System', category: 'Software / Web Development', featured: false, github: `${GH}/Voting-system`, ...art('voting-system'),
-    shortDescription: 'Django online voting application with candidates, vote records, candidate images and a vote-received sound.',
-    technologies: ['Python', 'Django', 'SQLite'], metrics: [],
-    problem: 'A voting process needs candidates, one vote record per choice and clear feedback to the voter.',
-    approach: ['Created a Django project (myvoting) with a polls app', 'Modelled Candidate and Vote entities', 'Served templates and candidate images as static files', 'Added an audio confirmation when a vote is received', 'Stored data in SQLite'],
-    solution: 'A minimal Django voting example where voters choose a candidate and get instant confirmation.',
-    result: ['Working voting page with candidates and recorded votes', 'Setup steps documented for local use'],
-    benefits: ['Simple, clear voting flow', 'Instant audio feedback', 'Easy to run locally'],
-    different: ['Django admin and ORM instead of hand-written database code', 'Audio confirmation instead of a silent submit', 'Small, readable codebase that is easy to learn from'] },
-  { id: 'iot-website', title: 'IoT Device Platform', category: 'Software / Web Development', featured: false, github: `${GH}/IoT-Website`, ...art('iot-website'),
-    shortDescription: 'Smart-device management platform with real-time device monitoring, dashboard charts, automation rules and user management.',
-    technologies: ['React', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'Recharts'], metrics: [],
-    problem: 'IoT devices produce data that needs one place to monitor, chart and control it.',
-    approach: ['Built a React frontend with charts and animations', 'Created a Node.js / Express REST API with MongoDB (Mongoose)', 'Used Socket.io for real-time updates', 'Added JWT-based authentication and multi-user support', 'Included posture illustrations (good, lean, slouch) for the smart-chair use case'],
-    solution: 'A centralised web platform to manage smart devices, view live sensor data and set up automation.',
-    result: ['Working full-stack IoT dashboard platform (frontend and backend folders)', 'Real-time updates and data visualisation'],
-    benefits: ['Live visibility of device data', 'One dashboard for many devices', 'Mobile-friendly interface'],
-    different: ['Real-time push with Socket.io instead of manual refresh', 'Interactive charts instead of raw numbers', 'Full-stack platform instead of a single-device demo'] },
-  { id: 'tools-and-jobs', title: 'Tools & Jobs', category: 'Software / Web Development', featured: false, github: '', ...art('tools-and-jobs'), private: true,
-    shortDescription: 'Private repository. A full case study will be added soon.',
-    technologies: [], metrics: [],
-    problem: '',
-    approach: ['[', ']'],
-    solution: '',
-    result: ['[', ']'],
-    benefits: ['[', ']'],
-    different: ['[', ']'] },
-  { id: 'sams-hardware', title: 'SAMS: Smart Abrasive Monitoring System', category: 'Hardware', featured: true, github: `${GH}/SAMS---Smart-Abrasive-Monitoring-System`, ...art('sams'), extraLinks: [{ label: 'Documentation repository', url: `${GH}/SAMS-Smart-Abrasive-Monitoring-System-` }],
-    shortDescription: 'Final-year project: sensor-based monitoring of grinding wheel (abrasive) efficiency in surface grinding, using live data from physical grinding machines.',
-    technologies: ['Sensors', 'IoT', 'Data collection', 'Final-year project'], metrics: [],
-    problem: 'Judging grinding wheel efficiency by eye or experience makes it hard to spot wear and performance loss early. Sensors can measure it continuously.',
-    approach: ['Instrumented physical grinding machines with sensors', 'Collected live sensor data during grinding operations', 'Analysed the data to track grinding wheel efficiency', 'Built the SAMS-Dashboard web app to visualise the data', 'Led the final-year project team'],
-    solution: 'SAMS (Smart Abrasive Monitoring System): sensor hardware, data collection and a dashboard that monitor grinding performance.',
-    result: ['Live sensor data collected from physical industrial grinding machines', 'Research paper presented (May 2025): Sensor-based Monitoring of Grinding Wheel Efficiency in Surface Grinding Operation'],
-    benefits: ['Replaces guesswork with measured data', 'Gives an early signal of efficiency loss', 'Provides real data for later analytics'],
-    different: ['Uses data from real physical machines instead of simulation', 'Measures the process continuously instead of occasional manual checks', 'Pairs hardware with a software dashboard instead of stopping at raw readings'] },
-]
+  {
+    id: "goodcabs",
+    title: "GoodCabs Analytics Platform",
+    category: "Data Engineering",
+    featured: true,
+    github: `${GH}/Databricks-Projects`,
+    ...real("goodcabs", 3),
+    shortDescription:
+      "End-to-end Databricks pipeline that turns raw transportation data into analytics-ready Gold datasets using the Medallion architecture.",
+    technologies: [
+      "AWS S3",
+      "Databricks",
+      "PySpark",
+      "SQL",
+      "Delta Lake",
+      "Power BI",
+    ],
+    metrics: [{ label: "Layers", value: "Bronze · Silver · Gold" }],
+    problem:
+      "Transportation trip and city data arrives as raw files. Before a business can ask questions about trips and cities, the data has to be ingested, cleaned and modelled.",
+    approach: [
+      "Brought raw city and trip data in from cloud storage (AWS S3) into Databricks",
+      "Organised the data in the Medallion architecture: Bronze, Silver and Gold",
+      "Cleaned and standardised records with PySpark in the Silver layer",
+      "Built business-ready Gold datasets for transportation and trip analysis",
+      "Added a project-setup notebook so the workflow can be re-run",
+    ],
+    solution:
+      "A Databricks pipeline, Raw data → Bronze → Silver → Gold, written in PySpark and SQL, with one set of notebooks per layer and an architecture diagram in the repository.",
+    result: [
+      "Working Bronze, Silver and Gold layers for city and trip data",
+      "Analytics-ready Gold tables that can be queried with SQL and connected to Power BI",
+      "Documented architecture and repeatable project setup",
+    ],
+    benefits: [
+      "Each layer has one job, so data problems are easy to trace",
+      "Analysts query clean Gold tables instead of raw files",
+      "The same pattern can be reused for other datasets",
+    ],
+    different: [
+      "Keeps raw data untouched in Bronze, so cleaning logic can be changed and re-run, unlike a single script that overwrites the source",
+      "Uses distributed PySpark on Databricks instead of single-machine scripts, so the same code scales with data size",
+      "Separates ingestion, cleaning and modelling into layers instead of one monolithic notebook",
+    ],
+  },
+  {
+    id: "aws-healthcare",
+    title: "AWS Healthcare Data Pipeline",
+    category: "Data Analytics",
+    featured: true,
+    github: `${GH}/AWS-DA`,
+    ...real("aws-healthcare", 3),
+    shortDescription:
+      "Serverless AWS pipeline: S3 data lake, Glue DataBrew profiling and cleaning, Glue ETL, Athena SQL and QuickSight dashboards for patient data.",
+    technologies: [
+      "Amazon S3",
+      "AWS Glue",
+      "Glue DataBrew",
+      "Athena",
+      "QuickSight",
+      "SQL",
+    ],
+    metrics: [
+      { label: "Pipeline steps", value: "10" },
+      { label: "Source files", value: "2 CSVs" },
+    ],
+    problem:
+      "Raw healthcare (patient) CSV files are not ready to query or visualise: they need profiling, cleaning, cataloguing and a way to run SQL over them.",
+    approach: [
+      "Stored the raw patient CSV files in an Amazon S3 data lake",
+      "Profiled and cleaned the data with AWS Glue DataBrew recipes",
+      "Catalogued the schema with a Glue Crawler and the Glue Data Catalog",
+      "Transformed the data with an AWS Glue ETL job and wrote processed data back to S3",
+      "Queried the results with Amazon Athena and built a QuickSight dashboard",
+    ],
+    solution:
+      "A managed cloud workflow: Raw data → S3 → DataBrew → Glue Crawler/Catalog → Glue ETL → processed S3 → Athena → QuickSight.",
+    result: [
+      "Raw CSV files turned into clean, structured, queryable datasets",
+      "SQL access to processed data through Athena",
+      "Visualisation-ready data for a QuickSight dashboard",
+    ],
+    benefits: [
+      "No servers to provision or maintain",
+      "Data stays in S3 and is queried in place",
+      "Every stage is a separate, reusable AWS service",
+    ],
+    different: [
+      "Serverless services instead of building and running your own database or warehouse",
+      "Visual profiling and recipes in DataBrew instead of hand-written cleaning code",
+      "Athena queries data where it sits in S3 instead of loading it into a database first",
+    ],
+  },
+  {
+    id: "machine-monitoring",
+    title: "Machine Monitoring Analytics (M2 & M35)",
+    category: "Data Analytics",
+    featured: true,
+    github: `${DA}/tree/main/1.%20Machine%20Monitoring%20Project`,
+    ...real("machine-monitoring", 3),
+    shortDescription:
+      "Manufacturing analytics on raw machine-monitoring data: SQL analysis and KPI dashboards in Power BI and Excel for the M2 and M35 machines.",
+    technologies: [
+      "SQL",
+      "Power BI",
+      "Excel",
+      "Data Cleaning",
+      "KPI Reporting",
+    ],
+    metrics: [{ label: "Machines", value: "M2 · M35" }],
+    problem:
+      "Raw machine-monitoring data from manufacturing is hard to read directly. Teams need KPIs that show how each machine is performing and where performance varies.",
+    approach: [
+      "Collected and cleaned raw machine-monitoring data for the M2 and M35 datasets",
+      "Ran SQL analysis directly on the raw data",
+      "Defined and calculated operational KPIs",
+      "Built dashboards in Power BI and Excel (plus a custom dashboard view) for the M2 machine",
+    ],
+    solution:
+      "A pipeline of Raw manufacturing data → cleaning → SQL analysis → KPI calculation → Power BI dashboard → operational insights.",
+    result: [
+      "Completed M2 and M35 dashboard work with SQL analysis on the raw data",
+      "The same dataset presented as Power BI, Excel and custom dashboards",
+      "Machine-health KPIs visible on a single screen",
+    ],
+    benefits: [
+      "Turns manufacturing data into actionable insight",
+      "Makes trends and performance variations visible",
+      "KPIs can be tracked over time",
+    ],
+    different: [
+      "Starts with SQL on the raw data instead of eyeballing a spreadsheet",
+      "Shows the same data in three dashboard forms instead of one fixed view",
+      "Built from real machine data rather than a sample dataset",
+    ],
+  },
+  {
+    id: "airbnb",
+    title: "Airbnb NYC: Python & EDA",
+    category: "Data Analytics",
+    featured: true,
+    github: `${DA}/tree/main/2.%20AirBnB%20Python%20%26%20EDA%20Project`,
+    ...real("airbnb", 4),
+    shortDescription:
+      "Exploratory data analysis of 20,770 Airbnb listings across 22 attributes: pricing, room types, neighbourhoods, reviews and correlations.",
+    technologies: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Jupyter",
+    ],
+    metrics: [
+      { label: "Listings", value: "20,770" },
+      { label: "Attributes", value: "22" },
+    ],
+    problem:
+      "Which neighbourhoods, room types and listing features drive Airbnb prices in New York, and how do reviews, beds and availability relate to each other?",
+    approach: [
+      "Loaded and explored the dataset: structure, data types, missing values and summary statistics",
+      "Checked data quality, distributions and outliers",
+      "Ran statistical and correlation analysis",
+      "Visualised prices, room types, geography, reviews and correlations (heatmap, pair plots)",
+    ],
+    solution:
+      "A Jupyter notebook that answers a list of business questions with Pandas, NumPy, Matplotlib and Seaborn, from data loading to insights.",
+    result: [
+      "Manhattan showed higher average prices than the other neighbourhood groups",
+      "Entire homes/apartments generally cost more than private or shared rooms",
+      "Beds and price have a moderate positive relationship (correlation about 0.42)",
+      "Reviews and reviews per month are strongly related (about 0.63)",
+      "Listings are concentrated in specific parts of New York City",
+    ],
+    benefits: [
+      "Gives hosts and analysts evidence on what drives price",
+      "Shows which variables matter and which do not (minimum nights is only weakly related to price)",
+      "Notebook is reproducible with a few commands",
+    ],
+    different: [
+      "Starts from clear business questions instead of just printing summary statistics",
+      "Combines data-quality checks, correlation analysis and geography in one workflow",
+      "Fully scripted in a notebook rather than manual spreadsheet pivots",
+    ],
+  },
+  {
+    id: "ola",
+    title: "OLA Ride Analytics",
+    category: "Data Analytics",
+    featured: true,
+    github: `${DA}/tree/main/3.%20Ola%20Project`,
+    ...art("ola"),
+    shortDescription:
+      "Analysis of a 100,000-row Ola booking dataset covering bookings, cancellations, customers, vehicles and revenue, with SQL, a Power BI dashboard and a presentation.",
+    technologies: ["SQL", "Power BI", "Excel", "PowerPoint"],
+    metrics: [{ label: "Booking rows", value: "100,000" }],
+    problem:
+      "A ride-hailing business needs to understand booking patterns, ride status, cancellations, customer behaviour and vehicle performance from a large booking dataset.",
+    approach: [
+      "Cleaned the 100,000-row booking dataset with SQL",
+      "Wrote SQL analysis queries for the key business questions",
+      "Built a Power BI dashboard for the main KPIs",
+      "Summarised the findings in a PDF report and a slide deck",
+    ],
+    solution:
+      "A complete analytics package: cleaned data, SQL cleaning and analysis scripts, a Power BI dashboard, an analytical report and a presentation.",
+    result: [
+      "Cleaned dataset with documented SQL cleaning and analysis scripts",
+      "Power BI dashboard (.pbix) for ride KPIs",
+      "Analytical report (PDF) and presentation (PPTX) with the findings",
+    ],
+    benefits: [
+      "Decision-makers get findings in report, slide and dashboard form",
+      "Cleaning and analysis steps are repeatable SQL scripts",
+      "Covers bookings, cancellations, customers, vehicles and revenue in one project",
+    ],
+    different: [
+      "Cleaning and analysis are written as SQL scripts instead of one-off spreadsheet edits",
+      "Delivers a dashboard, a report and a presentation instead of a single output",
+      "Works at 100,000 rows where manual spreadsheet analysis becomes slow",
+    ],
+  },
+  {
+    id: "zepto",
+    title: "Zepto Inventory Analysis",
+    category: "Data Analytics",
+    featured: true,
+    github: `${DA}/tree/main/5.%20Zepto%20SQL%20Project`,
+    ...real("zepto", 2),
+    shortDescription:
+      "SQL-first analysis of a Zepto product and inventory dataset (pricing, discounts, stock availability) with a Power BI inventory dashboard.",
+    technologies: ["SQL", "Power BI", "Excel", "CSV"],
+    metrics: [],
+    problem:
+      "A quick-commerce business needs to understand product pricing, discounts and stock availability across its inventory.",
+    approach: [
+      "Inspected the raw product dataset (CSV and Excel)",
+      "Explored and filtered the data with SQL (WHERE, GROUP BY, CASE, subqueries)",
+      "Aggregated pricing, discount and stock metrics",
+      'Built a Power BI "Zepto Inventory Analysis" dashboard with KPI cards',
+    ],
+    solution:
+      "A SQL script for data exploration and business analysis, plus a Power BI dashboard that presents inventory KPIs.",
+    result: [
+      "SQL analysis script covering pricing, discount and stock patterns",
+      "Power BI inventory dashboard with KPI cards and breakdown charts",
+      "Dataset provided in CSV and Excel form",
+    ],
+    benefits: [
+      "Highlights pricing and discount patterns",
+      "Shows stock availability at a glance",
+      "SQL logic is reusable on new data",
+    ],
+    different: [
+      "SQL-first exploration before building visuals instead of dragging fields straight into a dashboard",
+      "Uses conditional logic and subqueries for business rules instead of manual filtering",
+      "Pairs a query script with a dashboard so numbers can be traced back to SQL",
+    ],
+  },
+  {
+    id: "blinkit",
+    title: "Blinkit Grocery Analytics",
+    category: "Data Analytics",
+    featured: false,
+    github: `${DA}/tree/main/4.%20Blinkit%20Project`,
+    ...art("blinkit"),
+    shortDescription:
+      "Grocery retail analytics on Blinkit data: sales, product, outlet and category KPIs using SQL, Excel and Power BI.",
+    technologies: ["SQL", "Excel", "Power BI"],
+    metrics: [],
+    problem:
+      "A grocery retailer needs to see sales performance, product and category mix and outlet performance in one place.",
+    approach: [
+      "Prepared the BlinkIT grocery dataset in Excel",
+      "Wrote SQL queries for product, outlet and category analysis",
+      "Defined business KPIs",
+      "Presented the results as dashboard visuals",
+    ],
+    solution:
+      "A KPI-focused BI project that combines Excel data preparation, SQL analysis and dashboard visualisation.",
+    result: [
+      "SQL analysis resources and documentation for the dataset",
+      "KPI dashboard visuals for sales, product, outlet and category views",
+    ],
+    benefits: [
+      "Shows sales patterns by product, category and outlet",
+      "Keeps KPIs consistent through shared SQL definitions",
+      "Easy for non-technical users to read",
+    ],
+    different: [
+      "KPIs are defined in SQL first, then visualised, instead of being calculated ad hoc in the dashboard",
+      "Looks at product, outlet and category together instead of one view",
+      "Uses three tools (SQL, Excel, Power BI) for the job each does best",
+    ],
+  },
+  {
+    id: "smart-chair-kit",
+    title: "IoT Smart Chair Kit",
+    category: "Hardware",
+    featured: false,
+    github: `${GH}/Project-IoT-Smart-Chair-Kit`,
+    ...art("smart-chair-kit"),
+    shortDescription:
+      "Attachable IoT kit that tracks sitting posture, sitting time and weight distribution, with health alerts and a live Blynk dashboard.",
+    technologies: [
+      "ESP32",
+      "Arduino Uno",
+      "Flex & force sensors",
+      "Load cells",
+      "Blynk",
+    ],
+    metrics: [
+      { label: "Team", value: "4" },
+      { label: "Recognition", value: "1st Runner-up" },
+    ],
+    problem:
+      "Long hours of sitting and poor posture hurt health, but ordinary chairs give no feedback.",
+    approach: [
+      "Fitted flex and force sensors to detect posture and load cells to measure weight distribution",
+      "Connected an ESP32 and Arduino Uno with sensors, a buzzer/vibration alert and a temperature sensor",
+      "Sent live data to a Blynk IoT dashboard on mobile and PC",
+      "Omkar worked on IoT integration and documentation within a team of four",
+    ],
+    solution:
+      "A compact kit that attaches behind the backrest and under the seat of an existing chair and gives real-time posture, sitting-time and condition feedback.",
+    result: [
+      "1st Runner-up at the Utkarsh National Robotics Competition",
+      "Participant at the DIPEX 2025 state-level innovation exhibition",
+      "Showcased at the Roborastra competition",
+    ],
+    benefits: [
+      "Prevents prolonged sitting and bad posture through alerts",
+      "Useful for offices, schools, healthcare and even vehicle seats",
+      "Live dashboard shows data anywhere",
+    ],
+    different: [
+      "Fuses several sensors for more accurate posture and load detection",
+      "Is a modular kit that attaches to any existing chair, not a special chair",
+      "Is cloud-connected, with room to add AI posture correction and fatigue detection later",
+    ],
+  },
+  {
+    id: "ai-chatbot",
+    title: "AI ChatBot",
+    category: "Software / Web Development",
+    featured: false,
+    github: `${GH}/AI-ChatBot`,
+    ...art("ai-chatbot"),
+    shortDescription:
+      "Conversational AI app with a React (Vite) frontend and a Python Flask backend powered by the Google Gemini Flash 2.0 API.",
+    technologies: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Python",
+      "Flask",
+      "Gemini API",
+    ],
+    metrics: [],
+    problem:
+      "Build a chatbot that talks to a large language model without exposing the API key in the browser.",
+    approach: [
+      "Built a React + Vite + Tailwind frontend for the chat interface",
+      "Created a Flask REST API that calls the Gemini Flash 2.0 model",
+      "Kept the API key in a backend .env file",
+      "Structured frontend and backend as separate, deployable modules",
+    ],
+    solution:
+      "A modular chatbot: the React frontend talks to the Flask backend, which calls the Gemini API and returns replies.",
+    result: [
+      "Working conversational AI app with a frontend and backend",
+      "Local setup documented in the repository",
+    ],
+    benefits: [
+      "API key stays on the server",
+      "Frontend and backend can be developed and deployed separately",
+      "Easy to extend with new features",
+    ],
+    different: [
+      "Keeps the API key on the backend instead of in client-side code",
+      "Separates UI from API logic so either side can change independently",
+      "Uses a lightweight Flask service instead of a heavy framework",
+    ],
+  },
+  {
+    id: "data-analyst-lab",
+    title: "Data Analyst Practice Lab",
+    category: "Data Analytics",
+    featured: false,
+    github: `${GH}/Data-Analyst`,
+    ...real("data-analyst-lab", 2),
+    shortDescription:
+      "Learning and project repository covering Excel, MySQL, Power BI, Python and Tableau, including a Bike Sales dashboard and an Airbnb Tableau dashboard.",
+    technologies: ["Excel", "MySQL", "Power BI", "Python", "Tableau"],
+    metrics: [{ label: "Tools practised", value: "5" }],
+    problem:
+      "Build the practical skills needed for a Data Analyst / Business Analyst role: SQL, Python, Excel, Power BI, Tableau and statistics.",
+    approach: [
+      "Followed a loop of learn the concept, practise, build, analyse and document",
+      "Practised SQL and Python exercises",
+      "Built dashboards in Excel (Bike Sales), Power BI and Tableau (Airbnb)",
+    ],
+    solution:
+      "A growing repository of exercises, queries, analyses and dashboards organised by tool.",
+    result: [
+      "Dashboards built in Excel, Power BI and Tableau",
+      "SQL and Python practice collections",
+      "A documented learning progression",
+    ],
+    benefits: [
+      "Shows breadth across the main analyst tools",
+      "Documents the learning process",
+      "Continuously updated",
+    ],
+    different: [
+      "Practises the same kind of analysis in several tools instead of mastering only one",
+      "Documents each step instead of only showing final dashboards",
+      "Mixes exercises with project-style builds",
+    ],
+  },
+  {
+    id: "databricks-lab",
+    title: "Databricks Lakehouse Projects",
+    category: "Data Engineering",
+    featured: false,
+    github: `${GH}/Databricks`,
+    ...art("databricks-lab"),
+    shortDescription:
+      "Hands-on Data Engineering and Analytics projects built on Databricks, Apache Spark, PySpark, Spark SQL and Delta Lake.",
+    technologies: [
+      "Databricks",
+      "Apache Spark",
+      "PySpark",
+      "Spark SQL",
+      "Delta Lake",
+    ],
+    metrics: [],
+    problem:
+      "Learning data engineering well means practising the whole lakehouse workflow (ingestion, transformation, data quality and modelling), not only reading about it.",
+    approach: [
+      "Built projects around ETL / ELT pipelines on Databricks",
+      "Applied the Medallion architecture: Bronze, Silver and Gold layers",
+      "Practised transformation, cleaning, data quality and data modelling",
+      "Used Delta Lake and Spark optimisation concepts",
+    ],
+    solution:
+      "A growing repository of practical Databricks projects covering data engineering, analytics and lakehouse use cases.",
+    result: [
+      "Hands-on projects across Databricks, Spark and Delta Lake",
+      "A reusable Source → Bronze → Silver → Gold → Analytics architecture pattern",
+    ],
+    benefits: [
+      "Builds practical, industry-style data engineering skills",
+      "Each project reuses a proven layered architecture",
+      "Documents the learning journey in one place",
+    ],
+    different: [
+      "Hands-on projects instead of theory or certificates alone",
+      "Covers the whole lifecycle (ingest, model, serve) instead of isolated Spark exercises",
+      "Uses Delta Lake and the Medallion pattern from the start instead of flat, unmanaged tables",
+    ],
+  },
+  {
+    id: "sams-dashboard",
+    title: "SAMS Dashboard",
+    category: "Software / Web Development",
+    featured: true,
+    github: `${GH}/SAMS-Dashboard`,
+    ...art("sams-dashboard"),
+    shortDescription:
+      "Responsive web dashboard for SAMS: real-time monitoring, performance metrics and analytics of grinding-machine sensor data, with secure authentication.",
+    technologies: ["React", "Vite", "Node.js", "Express", "MongoDB"],
+    metrics: [],
+    problem:
+      "Sensor data from grinding machines is only useful if operators can see it clearly and in real time.",
+    approach: [
+      "Built a React + Vite frontend for real-time monitoring and analytics screens",
+      "Created a Node.js / Express backend with a database",
+      "Added secure authentication",
+      "Made the interface responsive for desktop and mobile",
+    ],
+    solution:
+      "SAMS-Dashboard: a web application that visualises machine sensor data and key performance metrics.",
+    result: [
+      "A working web dashboard for real-time monitoring and analytics",
+      "The software half of the SAMS hardware + software system",
+    ],
+    benefits: [
+      "One place to see machine condition",
+      "Works on desktop and mobile",
+      "Access is protected by authentication",
+    ],
+    different: [
+      "Web-based, so no special software is needed to view machine data",
+      "Built for a system with real physical sensors, not a demo with fake data",
+      "Separates frontend, API and database so each can change independently",
+    ],
+  },
+  {
+    id: "deepseek-clone",
+    title: "DeepSeek Clone",
+    category: "Software / Web Development",
+    featured: false,
+    github: `${GH}/DeepSeek-Clone`,
+    ...art("deepseek-clone"),
+    shortDescription:
+      "Full-stack clone of the DeepSeek AI chat interface built with Next.js, with sign-in, a database and well-formatted AI replies.",
+    technologies: ["Next.js", "React", "Clerk", "MongoDB", "Markdown"],
+    metrics: [],
+    problem:
+      "Understand how a modern AI chat product is built end to end: interface, authentication, storage and model calls.",
+    approach: [
+      "Built the chat interface with Next.js and React",
+      "Added user sign-in with Clerk",
+      "Stored data with MongoDB (Mongoose)",
+      "Rendered answers as formatted Markdown with code highlighting (react-markdown, Prism)",
+      "Deployed on Vercel (live demo linked in the README)",
+    ],
+    solution:
+      "A responsive DeepSeek-style chat application with sign-in, saved data and cleanly formatted answers.",
+    result: [
+      "Working AI chat clone with authentication and a database",
+      "Live demo referenced in the repository",
+    ],
+    benefits: [
+      "Shows full-stack skills with a modern framework",
+      "Readable answers with highlighted code",
+      "Easy to extend with other models",
+    ],
+    different: [
+      "A full-stack Next.js app instead of a static UI mock-up",
+      "Real authentication and storage instead of hard-coded data",
+      "Formats code and Markdown in replies instead of plain text",
+    ],
+  },
+  {
+    id: "youtube-downloader",
+    title: "YouTube Video & Audio Downloader",
+    category: "Software / Web Development",
+    featured: false,
+    github: `${GH}/YouTube-Video-Audio-Downloader`,
+    ...real("youtube-downloader", 4),
+    shortDescription:
+      "Flask web app where signed-in users download YouTube videos as MP4 (up to 720p) or audio as 192 kbps MP3, with a personal download history.",
+    technologies: ["Python", "Flask", "SQLite", "yt-dlp", "ffmpeg", "Gunicorn"],
+    metrics: [],
+    problem:
+      "Saving a video or only its audio normally means anonymous third-party sites with no history or clean-up. This project builds a private, account-based alternative.",
+    approach: [
+      "Built a Flask backend with Flask-Login and Bcrypt authentication",
+      "Used yt-dlp and ffmpeg to fetch and convert media (MP4 up to 720p, MP3 192 kbps)",
+      "Stored users and download history in SQLite through SQLAlchemy",
+      "Built a dashboard that lists completed downloads and clears failed ones automatically",
+      "Prepared production serving with Gunicorn",
+    ],
+    solution:
+      "A secure web app with registration, login, a download dashboard and a per-user history of completed downloads.",
+    result: [
+      "Working app with landing page, registration, login, dashboard and history",
+      "Screenshots of the interface included in the repository",
+    ],
+    benefits: [
+      "Personal, private download history",
+      "Failed attempts and temporary files are cleaned up automatically",
+      "Choice of video (MP4) or audio (MP3)",
+    ],
+    different: [
+      "Requires login, so history belongs to each user instead of being anonymous",
+      "Cleans up failed downloads and temp files automatically",
+      "Merges best video with best audio using ffmpeg instead of settling for single-stream quality",
+    ],
+  },
+  {
+    id: "chat-app",
+    title: "Real-Time Chat App",
+    category: "Software / Web Development",
+    featured: false,
+    github: `${GH}/Chat-App`,
+    ...real("chat-app", 3),
+    shortDescription:
+      "Real-time chat application with registration, login, an active-users list and instant messaging.",
+    technologies: ["React", "Vite", "Firebase", "Zustand"],
+    metrics: [],
+    problem:
+      "Build a lightweight chat that demonstrates real-time communication together with user authentication.",
+    approach: [
+      "Created registration and login flows",
+      "Built the main chat window with real-time messaging between users",
+      "Added an active-users list so people can see who is online",
+      "Managed state with Zustand and used Firebase for backend services",
+      "Added an emoji picker and toast notifications",
+    ],
+    solution:
+      "A responsive full-stack chat application where users register, sign in and talk instantly.",
+    result: [
+      "Working real-time chat with authentication",
+      "Screenshots of the login, add-user and chat views in the repository",
+    ],
+    benefits: [
+      "Instant messaging between users",
+      "See who is online at a glance",
+      "Lightweight setup with minimal dependencies",
+    ],
+    different: [
+      "Uses managed Firebase services instead of running separate auth and database servers",
+      "Light state management with Zustand instead of heavy boilerplate",
+      "Includes presence (active users) instead of only sending messages",
+    ],
+  },
+  {
+    id: "ecommerce",
+    title: "React E-Commerce Store",
+    category: "Software / Web Development",
+    featured: false,
+    github: `${GH}/React-Project-E-Commerce-Website`,
+    ...art("ecommerce"),
+    shortDescription:
+      "Responsive e-commerce storefront with product browsing, product details, a persistent cart and user sign-in.",
+    technologies: ["React", "Vite", "Redux Toolkit", "React Router", "Clerk"],
+    metrics: [],
+    problem:
+      "Practise building the core flows of an online shop: browsing products, managing a cart and signing in.",
+    approach: [
+      "Built category browsing and product detail pages",
+      "Implemented add / remove / update cart actions with Redux Toolkit",
+      "Kept the cart persistent with localStorage",
+      "Added login and signup with Clerk",
+      "Used React Router and designed for all screen sizes",
+    ],
+    solution:
+      "A modern, responsive React + Vite storefront with a smooth cart experience.",
+    result: [
+      "Working e-commerce front end with products, cart and authentication",
+      "Live demo referenced in the repository",
+    ],
+    benefits: [
+      "Covers the main shopping flows end to end",
+      "Cart survives page refreshes",
+      "Works on phones, tablets and desktops",
+    ],
+    different: [
+      "Single-page React app, so navigation feels instant instead of reloading pages",
+      "Managed authentication instead of building login from scratch",
+      "Persistent cart instead of losing items on refresh",
+    ],
+  },
+  {
+    id: "airbnb-clone",
+    title: "AirBnB Clone",
+    category: "Software / Web Development",
+    featured: false,
+    github: `${GH}/AirBnB-Clone`,
+    ...art("airbnb-clone"),
+    shortDescription:
+      "Airbnb-inspired web app to browse accommodations and manage property listings, built with Node.js and Express.",
+    technologies: ["Node.js", "Express", "EJS", "MVC"],
+    metrics: [],
+    problem:
+      "Learn full-stack development by recreating the core idea of Airbnb: exploring stays and managing listings.",
+    approach: [
+      "Structured the app in an MVC pattern (controllers, models, data)",
+      "Rendered property pages with EJS templates on an Express server",
+      "Built browsing of property listings and listing management",
+      "Used property imagery to recreate the Airbnb look and feel",
+    ],
+    solution:
+      "A server-rendered web application where users browse accommodation and manage listings.",
+    result: [
+      "Working Airbnb-style listing app",
+      "Clear separation of controllers, models and data",
+    ],
+    benefits: [
+      "Teaches the full request-to-page flow",
+      "Organised code that is easy to extend",
+      "Demonstrates server-side rendering",
+    ],
+    different: [
+      "Server-rendered pages with EJS instead of a client-only app",
+      "MVC structure instead of everything in one file",
+      "Built from scratch with Express instead of a site builder",
+    ],
+  },
+  {
+    id: "voting-system",
+    title: "Voting System",
+    category: "Software / Web Development",
+    featured: false,
+    github: `${GH}/Voting-system`,
+    ...art("voting-system"),
+    shortDescription:
+      "Django online voting application with candidates, vote records, candidate images and a vote-received sound.",
+    technologies: ["Python", "Django", "SQLite"],
+    metrics: [],
+    problem:
+      "A voting process needs candidates, one vote record per choice and clear feedback to the voter.",
+    approach: [
+      "Created a Django project (myvoting) with a polls app",
+      "Modelled Candidate and Vote entities",
+      "Served templates and candidate images as static files",
+      "Added an audio confirmation when a vote is received",
+      "Stored data in SQLite",
+    ],
+    solution:
+      "A minimal Django voting example where voters choose a candidate and get instant confirmation.",
+    result: [
+      "Working voting page with candidates and recorded votes",
+      "Setup steps documented for local use",
+    ],
+    benefits: [
+      "Simple, clear voting flow",
+      "Instant audio feedback",
+      "Easy to run locally",
+    ],
+    different: [
+      "Django admin and ORM instead of hand-written database code",
+      "Audio confirmation instead of a silent submit",
+      "Small, readable codebase that is easy to learn from",
+    ],
+  },
+  {
+    id: "iot-website",
+    title: "IoT Device Platform",
+    category: "Software / Web Development",
+    featured: false,
+    github: `${GH}/IoT-Website`,
+    ...art("iot-website"),
+    shortDescription:
+      "Smart-device management platform with real-time device monitoring, dashboard charts, automation rules and user management.",
+    technologies: [
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Socket.io",
+      "Recharts",
+    ],
+    metrics: [],
+    problem:
+      "IoT devices produce data that needs one place to monitor, chart and control it.",
+    approach: [
+      "Built a React frontend with charts and animations",
+      "Created a Node.js / Express REST API with MongoDB (Mongoose)",
+      "Used Socket.io for real-time updates",
+      "Added JWT-based authentication and multi-user support",
+      "Included posture illustrations (good, lean, slouch) for the smart-chair use case",
+    ],
+    solution:
+      "A centralised web platform to manage smart devices, view live sensor data and set up automation.",
+    result: [
+      "Working full-stack IoT dashboard platform (frontend and backend folders)",
+      "Real-time updates and data visualisation",
+    ],
+    benefits: [
+      "Live visibility of device data",
+      "One dashboard for many devices",
+      "Mobile-friendly interface",
+    ],
+    different: [
+      "Real-time push with Socket.io instead of manual refresh",
+      "Interactive charts instead of raw numbers",
+      "Full-stack platform instead of a single-device demo",
+    ],
+  },
+  {
+    id: "tools-and-jobs",
+    title: "Tools & Jobs",
+    category: "Software / Web Development",
+    featured: false,
+    github: "",
+    ...art("tools-and-jobs"),
+    private: true,
+    shortDescription:
+      "Private repository. A full case study will be added soon.",
+    technologies: [],
+    metrics: [],
+    problem: "",
+    approach: ["[", "]"],
+    solution: "",
+    result: ["[", "]"],
+    benefits: ["[", "]"],
+    different: ["[", "]"],
+  },
+  {
+    id: "sams-hardware",
+    title: "SAMS: Smart Abrasive Monitoring System",
+    category: "Hardware",
+    featured: true,
+    github: `${GH}/SAMS---Smart-Abrasive-Monitoring-System`,
+    ...art("sams"),
+    extraLinks: [
+      {
+        label: "Documentation repository",
+        url: `${GH}/SAMS-Smart-Abrasive-Monitoring-System-`,
+      },
+    ],
+    shortDescription:
+      "Final-year project: sensor-based monitoring of grinding wheel (abrasive) efficiency in surface grinding, using live data from physical grinding machines.",
+    technologies: ["Sensors", "IoT", "Data collection", "Final-year project"],
+    metrics: [],
+    problem:
+      "Judging grinding wheel efficiency by eye or experience makes it hard to spot wear and performance loss early. Sensors can measure it continuously.",
+    approach: [
+      "Instrumented physical grinding machines with sensors",
+      "Collected live sensor data during grinding operations",
+      "Analysed the data to track grinding wheel efficiency",
+      "Built the SAMS-Dashboard web app to visualise the data",
+      "Led the final-year project team",
+    ],
+    solution:
+      "SAMS (Smart Abrasive Monitoring System): sensor hardware, data collection and a dashboard that monitor grinding performance.",
+    result: [
+      "Live sensor data collected from physical industrial grinding machines",
+      "Research paper presented (May 2025): Sensor-based Monitoring of Grinding Wheel Efficiency in Surface Grinding Operation",
+    ],
+    benefits: [
+      "Replaces guesswork with measured data",
+      "Gives an early signal of efficiency loss",
+      "Provides real data for later analytics",
+    ],
+    different: [
+      "Uses data from real physical machines instead of simulation",
+      "Measures the process continuously instead of occasional manual checks",
+      "Pairs hardware with a software dashboard instead of stopping at raw readings",
+    ],
+  },
+];
 
-const order = ['goodcabs', 'aws-healthcare', 'machine-monitoring', 'airbnb', 'ola', 'zepto', 'blinkit', 'databricks-lab', 'data-analyst-lab', 'sams-dashboard', 'ai-chatbot', 'deepseek-clone', 'youtube-downloader', 'chat-app', 'ecommerce', 'airbnb-clone', 'voting-system', 'iot-website', 'tools-and-jobs', 'sams-hardware', 'smart-chair-kit']
+const order = [
+  "goodcabs",
+  "aws-healthcare",
+  "machine-monitoring",
+  "airbnb",
+  "ola",
+  "zepto",
+  "blinkit",
+  "databricks-lab",
+  "data-analyst-lab",
+  "sams-dashboard",
+  "ai-chatbot",
+  "deepseek-clone",
+  "youtube-downloader",
+  "chat-app",
+  "ecommerce",
+  "airbnb-clone",
+  "voting-system",
+  "iot-website",
+  "tools-and-jobs",
+  "sams-hardware",
+  "smart-chair-kit",
+];
 // Display order: Data Analytics / Data Engineering first, then Software / Web, then Hardware.
-export const projects: Project[] = order.map(id => base.find(p => p.id === id)!)
+export const projects: Project[] = order.map(
+  (id) => base.find((p) => p.id === id)!,
+);
 
 // Primary portfolio = data work; everything else lives on the Other Work page.
-export const isData = (p: Project) => p.category === 'Data Analytics' || p.category === 'Data Engineering'
-export const dataProjects = projects.filter(isData)
-export const otherProjects = projects.filter(p => !isData(p))
-export const dataCategories: Category[] = ['Data Analytics', 'Data Engineering']
-export const otherCategories: Category[] = ['Software / Web Development', 'Hardware']
+export const isData = (p: Project) =>
+  p.category === "Data Analytics" || p.category === "Data Engineering";
+export const dataProjects = projects.filter(isData);
+export const otherProjects = projects.filter((p) => !isData(p));
+export const dataCategories: Category[] = [
+  "Data Analytics",
+  "Data Engineering",
+];
+export const otherCategories: Category[] = [
+  "Software / Web Development",
+  "Hardware",
+];
