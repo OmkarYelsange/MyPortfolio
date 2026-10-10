@@ -41,7 +41,7 @@ export default function RecruiterSnapshot() {
       aria-labelledby="snap"
     >
       <h2 id="snap" className="text-2xl font-bold">
-        Recruiter snapshot
+        Quick Overview
       </h2>
       <p className="mt-2 text-fg2">
         A quick overview of what I bring to the table.
