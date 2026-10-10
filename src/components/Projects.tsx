@@ -199,8 +199,8 @@ export default function Projects() {
   return (
     <ProjectsSection
       id="work"
-      eyebrow="SELECTED WORK"
-      title="Data projects"
+      eyebrow="DATA WORK"
+      title="Data Projects"
       model="globe"
       items={dataProjects}
       cats={dataCategories}

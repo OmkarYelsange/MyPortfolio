@@ -18,7 +18,7 @@ export function TechMatrix() {
     >
       <HeadModel kind="db" />
       <h2 id="tm" className="text-2xl font-bold sm:text-3xl">
-        Technologies by project
+        Technologies by Project
       </h2>
       <p className="mt-2 text-fg2">
         The twelve data tools I use most, and where each was used.
