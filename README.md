@@ -1,6 +1,6 @@
 # 👋 Omkar Yelsange — Data & AI Portfolio
 
-### Data Analyst | Aspiring Data Engineer | AI/ML Enthusiast
+### Data Analyst | Data Engineer | AI/ML Enthusiast
 
 🔗 **Live Portfolio:** [omkary.vercel.app](https://omkary.vercel.app/)
 
