@@ -14,7 +14,7 @@ export const experience: Role[] = [
     track: "data",
     company: "Autoline Industries Ltd",
     role: "Data Analyst",
-    dates: "June 2026 – Present",
+    dates: "June 2026 – Sept 2026",
     current: true,
     type: "Full-time",
     points: [
