@@ -299,8 +299,6 @@ I continuously work on improving my skills in:
 
 ## ⭐ About This Repository
 
-This repository contains the source code for my personal portfolio website.
-
 The portfolio evolves alongside my career — new **projects, dashboards, technical experiments, skills, and experiences** are added as I continue learning and building.
 
 If you find the project useful or interesting, consider giving the repository a ⭐.
